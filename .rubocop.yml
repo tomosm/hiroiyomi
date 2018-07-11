@@ -1,0 +1,16 @@
+AllCops:
+  TargetRubyVersion: 2.5.1
+  Exclude:
+    - vendor/**/*
+    - bin/*
+    - hiroiyomi.gemspec
+  #   - db/**/*
+  #   - config/**/*
+  #   - Gemfile
+
+Metrics/LineLength:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*
