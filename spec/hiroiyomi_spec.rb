@@ -6,7 +6,7 @@ require 'tempfile'
 
 RSpec.describe Hiroiyomi do
   it 'has a version number' do
-    expect(Hiroiyomi::VERSION).to eq '0.1.0'
+    expect(Hiroiyomi::VERSION).to eq '0.1.1'
   end
 
   describe '#read' do
