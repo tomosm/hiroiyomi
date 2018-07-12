@@ -9,17 +9,22 @@ module Hiroiyomi
     class Element
       include Enumerable
 
-      attr_accessor :name, :content, :attributes
+      attr_accessor :name, :content, :attributes, :children
 
-      def initialize(name, content: nil, attributes: [])
+      def initialize(name, content: nil, attributes: [], children: [])
         @name       = name
         @content    = content
         @attributes = attributes
+        @children   = children
+      end
+
+      def element=(element)
+        @children.push(element)
       end
 
       def each
-        @attributes.each do |attribute|
-          yield attribute
+        @children.each do |child|
+          yield child
         end
       end
     end

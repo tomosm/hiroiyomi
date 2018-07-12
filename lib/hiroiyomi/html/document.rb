@@ -9,28 +9,18 @@ module Hiroiyomi
     class Document
       include Enumerable
 
-      attr_accessor :elements
+      attr_accessor :root
 
-      def initialize(elements = [])
-        @elements = elements
+      def initialize
+        @root = nil
       end
 
       def element=(element)
-        @elements.push(element)
+        @root = element
       end
 
       def each
-        @elements.each do |element|
-          yield element
-        end
-      end
-
-      def length
-        @elements.length
-      end
-
-      def empty?
-        length.zero?
+        yield root unless root.nil?
       end
     end
   end

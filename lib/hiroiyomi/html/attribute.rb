@@ -13,6 +13,10 @@ module Hiroiyomi
         @name  = name
         @value = value
       end
+
+      def to_s
+        "#{name}=\"#{value}\""
+      end
     end
   end
 end

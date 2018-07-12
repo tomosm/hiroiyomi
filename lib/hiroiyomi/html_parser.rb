@@ -7,44 +7,41 @@ require 'hiroiyomi/html/attribute'
 
 module Hiroiyomi
   # HtmlParser
+  # rubocop:disable Metrics/ClassLength
   class HtmlParser
     include Parser
 
     private
 
-    def do_parse(file, filter:)
+    def do_parse(file)
       document = Html::Document.new
       return document if file.nil?
 
-      @filter_element_name_list = filter.nil? ? [] : filter.map(&:name)
       track_element(file, document)
-      document
     end
 
-    # ===
+    # ========
     # Extract HTML Element
-    # ===
+    # ========
 
     def track_element(file, document)
       while (c = file.getc)
-        if c == '<'
-          extract_element(file, document)
-        end
+        break if c == '<' && extract_element(file, document)
       end
+      document
     end
 
     def extract_element(file, document)
       name = extract_name(file)
-      return nil if skip_element?(name)
+      return false if name.empty?
 
       attributes       = extract_attributes(file)
-      content          = extract_content(file, document)
+      element          = Html::Element.new(name, attributes: attributes)
+      content          = extract_content(file, element)
+      element.content  = content unless content.empty?
 
-      document.element = Html::Element.new(name, content: content, attributes: attributes) if validate_closing_element?(name, file)
-    end
-
-    def skip_element?(name)
-      name.empty? || (!@filter_element_name_list.empty? && !@filter_element_name_list.include?(name))
+      document.element = element if validate_closing_element?(name, file)
+      true
     end
 
     # rubocop:disable Metrics/MethodLength
@@ -62,6 +59,7 @@ module Hiroiyomi
       end
       name
     end
+
     # rubocop:enable Metrics/MethodLength
 
     def extract_attributes(file)
@@ -91,31 +89,75 @@ module Hiroiyomi
 
       Html::Attribute.new(name, value.empty? ? nil : value)
     end
+
     # rubocop:enable Metrics/MethodLength, Metrics/CyclomaticComplexity
 
-    # rubocop:disable Metrics/MethodLength, Metrics/CyclomaticComplexity
+    # rubocop:disable Metrics/MethodLength, Metrics/CyclomaticComplexity, Metrics/AbcSize
     def extract_content(file, document)
       content = ''
       close   = false
+
+      append_content = lambda { |str|
+        content += str if close
+      }
+
       while (c = file.getc)
         case c
         when '/'
-          unless close
+          # /*<![CDATA[*/!function(e,t,r){function ... ])/*]]>*/
+          next_c = file.getc
+          if next_c == '*'
+            append_content.call(c + next_c)
+            content += extract_content_of_cddata(file)
+          elsif !close
             file.ungetc(c)
             break
           end
         when '<'
           extract_element(file, document)
+          # file.ungetc(c)
+          # track_element(file, document)
           close = false
         when '>'
           close ||= true
         else
-          content += c if close
+          append_content.call(c)
         end
       end
-      content.empty? ? nil : content
+      content
     end
-    # rubocop:enable Metrics/MethodLength, Metrics/CyclomaticComplexity
+
+    # /*<![CDATA[*/!function(e,t,r){function ... ])/*]]>*/
+    def extract_content_of_cddata(file)
+      content      = ''
+      start_cddata = false
+
+      append_content = lambda { |str|
+        content += str
+      }
+
+      while (c = file.getc)
+        case c
+        when '/'
+          next_c = file.getc
+          append_content.call(c + next_c) if next_c == '*'
+        when '*' # /*<![CDATA[*/!function(e,t,r){function ... ])/*]]>*/
+          next_c = file.getc
+          unless next_c == '/'
+            file.ungetc(next_c)
+            next_c = ''
+          end
+          start_cddata = !start_cddata
+          append_content.call(c + next_c)
+          return content unless start_cddata
+        else
+          append_content.call(c)
+        end
+      end
+      content
+    end
+
+    # rubocop:enable Metrics/MethodLength, Metrics/CyclomaticComplexity, Metrics/AbcSize
 
     def validate_closing_element?(element_name, file)
       open = false
@@ -125,5 +167,25 @@ module Hiroiyomi
       end
       false
     end
+
+    # ========
+    # Filter HTML Element
+    # ========
+
+    def do_filter(document, filter:)
+      filter_element(document, filter, [])
+    end
+
+    def filter_element(element, filter, extracted_elements)
+      element.each do |child|
+        if filter&.include?(child.name)
+          extracted_elements.push(child)
+        else
+          filter_element(child, filter, extracted_elements)
+        end
+      end
+      extracted_elements
+    end
   end
+  # rubocop:enable Metrics/ClassLength
 end

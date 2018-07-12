@@ -7,14 +7,14 @@ require 'hiroiyomi/html_parser'
 # Hiroiyomi
 module Hiroiyomi
   # @param [String] url URL
-  # @param [Hiroiyomi::Html::Document] filter filtered by name list of Hiroiyomi::Html::Element
+  # @param [Array] filter of filtered by name list, e.g. [h1, h2, h3]
   #
-  # @return [Hiroiyomi::Html::Document] Hiroiyomi::Html::Document which has extracted data
-  def parse(url, filter: nil)
-    HtmlParser.parse(url, filter: filter)
+  # @return [Array] of Hiroiyomi::Html::Element which has been filtered
+  def read(url, filter: [])
+    HtmlParser.read(url, filter: filter)
   end
 
   # rubocop:disable Style/AccessModifierDeclarations
-  module_function :parse
+  module_function :read
   # rubocop:enable Style/AccessModifierDeclarations
 end

@@ -8,21 +8,21 @@ module Hiroiyomi
   module Parser
     def self.included(klass)
       # @param [String] url URL
-      # @param [Hiroiyomi::Html::Document] filter filtered by name list of Hiroiyomi::Html::Element
+      # @param [Array] filter of filtered by name list, e.g. [h1, h2, h3]
       #
-      # @return [Hiroiyomi::Html::Document] Hiroiyomi::Html::Document which has extracted data
-      def klass.parse(url, filter:)
-        new.parse(url, filter: filter)
+      # @return [Array] of Hiroiyomi::Html::Element which has been filtered
+      def klass.read(url, filter:)
+        new.read(url, filter: filter)
       end
     end
 
     # @param [String] url URL
-    # @param [Hiroiyomi::Html::Document] filter filtered by name list of Hiroiyomi::Html::Element
+    # @param [Array] filter of filtered by name list, e.g. [h1, h2, h3]
     #
-    # @return [Hiroiyomi::Html::Document] Hiroiyomi::Html::Document which has extracted data
-    def parse(url, filter:)
+    # @return [Array] of Hiroiyomi::Html::Element which has been filtered
+    def read(url, filter:)
       @open_file = open_url(url)
-      do_parse(@open_file, filter: filter)
+      do_filter(do_parse(@open_file), filter: filter)
     ensure
       @open_file&.unlink
     end
@@ -33,8 +33,12 @@ module Hiroiyomi
       OpenURI.open_uri(url, ssl_verify_mode: OpenSSL::SSL::VERIFY_NONE)
     end
 
-    def do_parse(*)
-      raise NoMethodError.new('Unsupported', __method__)
+    def do_parse
+      raise NoMethodError.new, "#{__method__} need to be overridden."
+    end
+
+    def do_filter(data, *)
+      data
     end
   end
 end
