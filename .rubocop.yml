@@ -4,9 +4,6 @@ AllCops:
     - vendor/**/*
     - bin/*
     - hiroiyomi.gemspec
-  #   - db/**/*
-  #   - config/**/*
-  #   - Gemfile
 
 Metrics/LineLength:
   Enabled: false
