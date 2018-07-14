@@ -6,7 +6,7 @@ require 'tempfile'
 
 RSpec.describe Hiroiyomi do
   it 'has a version number' do
-    expect(Hiroiyomi::VERSION).to eq '0.1.2'
+    expect(Hiroiyomi::VERSION).to eq '0.1.3'
   end
 
   describe '#read' do
@@ -81,14 +81,17 @@ RSpec.describe Hiroiyomi do
             h1_elements = actual.select { |e| e.name == 'h1' }
             expect(h1_elements.length).to eq 2
             expect(h1_elements.map(&:to_s).sort.join(' ')).to eq '<h1>foo<a href="/a1">a1</a>baz</h1> <h1>hoge</h1>'
+            expect(h1_elements.map(&:inner_html).sort.join(' ')).to eq 'foo<a href="/a1">a1</a>baz hoge'
 
             a_elements = actual.select { |e| e.name == 'a' }
             expect(a_elements.length).to eq 2
             expect(a_elements.map(&:to_s).sort.join(' ')).to eq '<a href="/a1">a1</a> <a href="/a2">a2</a>'
+            expect(a_elements.map(&:inner_html).sort.join(' ')).to eq 'a1 a2'
 
             img_elements = actual.select { |e| e.name == 'img' }
             expect(img_elements.length).to eq 2
             expect(img_elements.map(&:to_s).sort.join(' ')).to eq '<img src="/img1.png" draggable="false"></img> <img src="/img2.jpg"></img>'
+            expect(img_elements.map(&:inner_html).sort.join).to eq ''
           end
 
           context 'when filter is not deep' do
@@ -98,14 +101,17 @@ RSpec.describe Hiroiyomi do
               h1_elements = actual.select { |e| e.name == 'h1' }
               expect(h1_elements.length).to eq 2
               expect(h1_elements.map(&:to_s).sort.join(' ')).to eq '<h1>foo<a href="/a1">a1</a>baz</h1> <h1>hoge</h1>'
+              expect(h1_elements.map(&:inner_html).sort.join(' ')).to eq 'foo<a href="/a1">a1</a>baz hoge'
 
               a_elements = actual.select { |e| e.name == 'a' }
               expect(a_elements.length).to eq 1
               expect(a_elements.map(&:to_s).sort.join(' ')).to eq '<a href="/a2">a2</a>'
+              expect(a_elements.map(&:inner_html).sort.join(' ')).to eq 'a2'
 
               img_elements = actual.select { |e| e.name == 'img' }
               expect(img_elements.length).to eq 2
               expect(img_elements.map(&:to_s).sort.join(' ')).to eq '<img src="/img1.png" draggable="false"></img> <img src="/img2.jpg"></img>'
+              expect(img_elements.map(&:inner_html).sort.join).to eq ''
             end
           end
         end

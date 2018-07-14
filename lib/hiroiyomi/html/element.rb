@@ -174,16 +174,14 @@ module Hiroiyomi
         searched
       end
 
+      def inner_html
+        children.map(&:to_s).join
+      end
+
       def to_s
         attrs = attributes.map(&:to_s).join(' ')
         attrs = ' ' + attrs unless attrs.empty?
-        "<#{name}#{attrs}>#{innerHTML}</#{name}>"
-      end
-
-      private
-
-      def innerHTML
-        children.map(&:to_s).join
+        "<#{name}#{attrs}>#{inner_html}</#{name}>"
       end
     end
   end
