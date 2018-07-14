@@ -18,6 +18,7 @@ module Hiroiyomi
 
         private
 
+        # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity
         # name=value
         #   Check spaces and > whether value is end
         # name="value"
@@ -53,6 +54,7 @@ module Hiroiyomi
           end
           value
         end
+        # rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity
       end
 
       def initialize(name, value = nil)

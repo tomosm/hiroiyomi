@@ -11,6 +11,8 @@ module Hiroiyomi
       attr_accessor :value
 
       class << self
+        # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity
+
         # Start from > after attributes
         def add_text_to_element_or_parse(file, element)
           close = false
@@ -44,14 +46,19 @@ module Hiroiyomi
             when '<'
               cur_pos = DOMParserHelper.cur_pos(file, c)
               next_c = file.getc
+              # rubocop:disable Metrics/BlockNesting
               if next_c == '!'
-                bang_string = DOMParserHelper.extract_bang_text(file)
-                unless bang_string.nil?
-                  # empty if comment
-                  add_text_to_element.call "#{c}#{next_c}#{bang_string}" unless bang_string.empty?
+                cddata = DOMParserHelper.extract_cddata(file)
+                unless cddata.nil?
+                  add_text_to_element.call "#{c}#{next_c}#{cddata}" unless cddata.empty?
                   next
                 end
+                # Drop comment
+                comment = DOMParserHelper.extract_comments(file)
+                next unless comment.nil?
               end
+              # rubocop:enable Metrics/BlockNesting
+
               file.pos = cur_pos
 
               add_text_to_element.call
@@ -71,6 +78,7 @@ module Hiroiyomi
           element
         end
       end
+      # rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity
 
       def initialize(value)
         @value = value

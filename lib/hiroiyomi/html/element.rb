@@ -6,6 +6,7 @@ require 'hiroiyomi/html/text'
 
 module Hiroiyomi
   module Html
+    # rubocop:disable Metrics/ClassLength
     # Element
     class Element
       include Enumerable
@@ -16,6 +17,7 @@ module Hiroiyomi
       class << self
         EXCEPTIONAL_ELEMENT_NAME_LIST = %w[script style].freeze
 
+        # rubocop:disable Metrics/MethodLength
         def value_of(file, parent_element = nil)
           # name
           name = extract_element_name(file)
@@ -44,14 +46,16 @@ module Hiroiyomi
           Text.add_text_to_element_or_parse(file, element)
 
           # close check. move element children to parent element if not closed. e.g. <img ...>
-          element.move_children_to(parent_element) unless validate_closing_element?(element, file)
+          element.move_children_to(parent_element) unless validate_closing_element?(file, element)
 
           parent_element
         end
+        # rubocop:enable Metrics/MethodLength
 
         private
 
-        def validate_closing_element?(element, file)
+        # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity
+        def validate_closing_element?(file, element)
           open = false
 
           while (c = file.getc)
@@ -77,6 +81,7 @@ module Hiroiyomi
               file.pos = cur_pos
               return false
             elsif c == '<' # case of </
+              Text.add_text_to_element_or_parse(file, element)
               open = true
             elsif open
               file.ungetc(c)
@@ -85,8 +90,10 @@ module Hiroiyomi
           end
           false
         end
+        # rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity
 
-        # Start from > after attributes
+        # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
+        # For script, style. First char must be > after attributes
         def extract_exceptional_element_text(file, name)
           DOMParserHelper.skip_ignore_chars(file)
           file.getc # drop >
@@ -106,17 +113,23 @@ module Hiroiyomi
           return Text.new(string) unless string.empty?
           nil
         end
+        # rubocop:enable Metrics/AbcSize, Metrics/MethodLength
+
+        def skip_comments(file)
+          cur_pos = file.pos
+          if file.getc == '!'
+            # Skip like <!document html>, <!--
+            DOMParserHelper.extract_comments(file)
+            return true
+          end
+          file.pos = cur_pos
+          false
+        end
 
         def extract_element_name(file)
           while (c = file.getc)
             next unless c == '<'
-            cur_pos = file.pos
-            if file.getc == '!'
-              # Skip like <!document html>, <!--
-              DOMParserHelper.extract_bang_text(file)
-              next
-            end
-            file.pos = cur_pos
+            next if skip_comments(file)
             return DOMParserHelper.extract_string(file)
           end
           ''
@@ -184,5 +197,6 @@ module Hiroiyomi
         "<#{name}#{attrs}>#{inner_html}</#{name}>"
       end
     end
+    # rubocop:enable Metrics/ClassLength
   end
 end
