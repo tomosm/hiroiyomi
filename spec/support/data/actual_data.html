@@ -1,0 +1,2195 @@
+<!doctype html>
+<!--[if !IE]>
+<html class="no-js non-ie" lang="ja"
+      itemscope
+      itemtype="http://schema.org/WebSite"
+      prefix="og: http://ogp.me/ns#"> <![endif]-->
+<!--[if IE 7 ]>
+<html class="no-js ie7" lang="ja"
+      itemscope
+      itemtype="http://schema.org/WebSite"
+      prefix="og: http://ogp.me/ns#"> <![endif]-->
+<!--[if IE 8 ]>
+<html class="no-js ie8" lang="ja"
+      itemscope
+      itemtype="http://schema.org/WebSite"
+      prefix="og: http://ogp.me/ns#"> <![endif]-->
+<!--[if IE 9 ]>
+<html class="no-js ie9" lang="ja"
+      itemscope
+      itemtype="http://schema.org/WebSite"
+      prefix="og: http://ogp.me/ns#"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-js" lang="ja"
+      itemscope
+      itemtype="http://schema.org/WebSite"
+      prefix="og: http://ogp.me/ns#"> <!--<![endif]-->
+<head>
+  <meta charset="UTF-8">
+  <script type="text/javascript">window.NREUM || (NREUM = {}), __nr_require = function (e, t, n) {
+    function r (n) {
+      if (!t[n]) {
+        var o = t[n] = {exports: {}};
+        e[n][0].call(o.exports, function (t) {
+          var o = e[n][1][t];
+          return r(o || t)
+        }, o, o.exports)
+      }
+      return t[n].exports
+    }
+
+    if ("function" == typeof __nr_require) return __nr_require;
+    for (var o = 0; o < n.length; o++) r(n[o]);
+    return r
+  }({
+    1: [function (e, t, n) {
+      function r () {
+      }
+
+      function o (e, t, n) {
+        return function () {
+          return i(e, [f.now()].concat(u(arguments)), t ? null : this, n), t ? void 0 : this
+        }
+      }
+
+      var i = e("handle"), a = e(2), u = e(3), c = e("ee").get("tracer"), f = e("loader"), s = NREUM;
+      "undefined" == typeof window.newrelic && (newrelic = s);
+      var p = ["setPageViewName", "setCustomAttribute", "setErrorHandler", "finished", "addToTrace", "inlineHit", "addRelease"],
+        d = "api-", l = d + "ixn-";
+      a(p, function (e, t) {
+        s[t] = o(d + t, !0, "api")
+      }), s.addPageAction = o(d + "addPageAction", !0), s.setCurrentRouteName = o(d + "routeName", !0), t.exports = newrelic, s.interaction = function () {
+        return (new r).get()
+      };
+      var m = r.prototype = {
+        createTracer: function (e, t) {
+          var n = {}, r = this, o = "function" == typeof t;
+          return i(l + "tracer", [f.now(), e, n], r), function () {
+            if (c.emit((o ? "" : "no-") + "fn-start", [f.now(), r, o], n), o) try {
+              return t.apply(this, arguments)
+            } catch (e) {
+              throw c.emit("fn-err", [arguments, this, e], n), e
+            } finally {
+              c.emit("fn-end", [f.now()], n)
+            }
+          }
+        }
+      };
+      a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","), function (e, t) {
+        m[t] = o(l + t)
+      }), newrelic.noticeError = function (e) {
+        "string" == typeof e && (e = new Error(e)), i("err", [e, f.now()])
+      }
+    }, {}], 2: [function (e, t, n) {
+      function r (e, t) {
+        var n = [], r = "", i = 0;
+        for (r in e) o.call(e, r) && (n[i] = t(r, e[r]), i += 1);
+        return n
+      }
+
+      var o = Object.prototype.hasOwnProperty;
+      t.exports = r
+    }, {}], 3: [function (e, t, n) {
+      function r (e, t, n) {
+        t || (t = 0), "undefined" == typeof n && (n = e ? e.length : 0);
+        for (var r = -1, o = n - t || 0, i = Array(o < 0 ? 0 : o); ++r < o;) i[r] = e[t + r];
+        return i
+      }
+
+      t.exports = r
+    }, {}], 4: [function (e, t, n) {
+      t.exports = {exists: "undefined" != typeof window.performance && window.performance.timing && "undefined" != typeof window.performance.timing.navigationStart}
+    }, {}], ee: [function (e, t, n) {
+      function r () {
+      }
+
+      function o (e) {
+        function t (e) {
+          return e && e instanceof r ? e : e ? c(e, u, i) : i()
+        }
+
+        function n (n, r, o, i) {
+          if (!d.aborted || i) {
+            e && e(n, r, o);
+            for (var a = t(o), u = m(n), c = u.length, f = 0; f < c; f++) u[f].apply(a, r);
+            var p = s[y[n]];
+            return p && p.push([b, n, r, a]), a
+          }
+        }
+
+        function l (e, t) {
+          v[e] = m(e).concat(t)
+        }
+
+        function m (e) {
+          return v[e] || []
+        }
+
+        function w (e) {
+          return p[e] = p[e] || o(n)
+        }
+
+        function g (e, t) {
+          f(e, function (e, n) {
+            t = t || "feature", y[n] = t, t in s || (s[t] = [])
+          })
+        }
+
+        var v = {}, y = {}, b = {on: l, emit: n, get: w, listeners: m, context: t, buffer: g, abort: a, aborted: !1};
+        return b
+      }
+
+      function i () {
+        return new r
+      }
+
+      function a () {
+        (s.api || s.feature) && (d.aborted = !0, s = d.backlog = {})
+      }
+
+      var u = "nr@context", c = e("gos"), f = e(2), s = {}, p = {}, d = t.exports = o();
+      d.backlog = s
+    }, {}], gos: [function (e, t, n) {
+      function r (e, t, n) {
+        if (o.call(e, t)) return e[t];
+        var r = n();
+        if (Object.defineProperty && Object.keys) try {
+          return Object.defineProperty(e, t, {value: r, writable: !0, enumerable: !1}), r
+        } catch (i) {
+        }
+        return e[t] = r, r
+      }
+
+      var o = Object.prototype.hasOwnProperty;
+      t.exports = r
+    }, {}], handle: [function (e, t, n) {
+      function r (e, t, n, r) {
+        o.buffer([e], r), o.emit(e, t, n)
+      }
+
+      var o = e("ee").get("handle");
+      t.exports = r, r.ee = o
+    }, {}], id: [function (e, t, n) {
+      function r (e) {
+        var t = typeof e;
+        return !e || "object" !== t && "function" !== t ? -1 : e === window ? 0 : a(e, i, function () {
+          return o++
+        })
+      }
+
+      var o = 1, i = "nr@id", a = e("gos");
+      t.exports = r
+    }, {}], loader: [function (e, t, n) {
+      function r () {
+        if (!x++) {
+          var e = h.info = NREUM.info, t = d.getElementsByTagName("script")[0];
+          if (setTimeout(s.abort, 3e4), !(e && e.licenseKey && e.applicationID && t)) return s.abort();
+          f(y, function (t, n) {
+            e[t] || (e[t] = n)
+          }), c("mark", ["onload", a() + h.offset], null, "api");
+          var n = d.createElement("script");
+          n.src = "https://" + e.agent, t.parentNode.insertBefore(n, t)
+        }
+      }
+
+      function o () {
+        "complete" === d.readyState && i()
+      }
+
+      function i () {
+        c("mark", ["domContent", a() + h.offset], null, "api")
+      }
+
+      function a () {
+        return E.exists && performance.now ? Math.round(performance.now()) : (u = Math.max((new Date).getTime(), u)) - h.offset
+      }
+
+      var u = (new Date).getTime(), c = e("handle"), f = e(2), s = e("ee"), p = window, d = p.document,
+        l = "addEventListener", m = "attachEvent", w = p.XMLHttpRequest, g = w && w.prototype;
+      NREUM.o = {
+        ST: setTimeout,
+        SI: p.setImmediate,
+        CT: clearTimeout,
+        XHR: w,
+        REQ: p.Request,
+        EV: p.Event,
+        PR: p.Promise,
+        MO: p.MutationObserver
+      };
+      var v = "" + location,
+        y = {beacon: "bam.nr-data.net", errorBeacon: "bam.nr-data.net", agent: "js-agent.newrelic.com/nr-1071.min.js"},
+        b = w && g && g[l] && !/CriOS/.test(navigator.userAgent),
+        h = t.exports = {offset: u, now: a, origin: v, features: {}, xhrWrappable: b};
+      e(1), d[l] ? (d[l]("DOMContentLoaded", i, !1), p[l]("load", r, !1)) : (d[m]("onreadystatechange", o), p[m]("onload", r)), c("mark", ["firstbyte", u], null, "api");
+      var x = 0, E = e(4)
+    }, {}]
+  }, {}, ["loader"]);</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="profile" href="http://gmpg.org/xfn/11">
+  <link rel="pingback" href="https://pozlife.net/xmlrpc.php">
+
+  <title>ポズナンらいふ | Pozlife</title>
+
+  <!-- All in One SEO Pack 2.6.1 by Michael Torbert of Semper Fi Web Design[984,1034] -->
+  <meta name="description"
+        content="ポズナン(ポーランド)移住した夫婦がお送りする海外生活。夫婦で思い切って海外移住を決意。夫は日本での会社生活後、フリーランスを経てポズナンで起業し移住。妻は英語を勉強しつつ好きなお花に携われるよう日々奮闘中。現地での気ままな生活をお届け。"/>
+  <link rel='next' href='https://pozlife.net/page/2'/>
+
+  <link rel="canonical" href="https://pozlife.net/"/>
+  <meta property="og:title" content="ポズナンらいふ | Pozlife"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://pozlife.net/"/>
+  <meta property="og:image" content="https://pozlife.net/wp-content/uploads/2017/12/S__27738115.jpg"/>
+  <meta property="og:site_name" content="ポズナンらいふ | Pozlife"/>
+  <meta property="fb:app_id" content="392461231184379"/>
+  <meta property="og:description"
+        content="ポズナン(ポーランド)移住した夫婦がお送りする海外生活。夫婦で思い切って海外移住を決意。夫は日本での会社生活後、フリーランスを経てポズナンで起業し移住。妻は英語を勉強しつつ好きなお花に携われるよう日々奮闘中。現地での気ままな生活をお届け。"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:site" content="@gopozlife"/>
+  <meta name="twitter:domain" content="twitter.com/gopozlife"/>
+  <meta name="twitter:title" content="ポズナンらいふ | Pozlife"/>
+  <meta name="twitter:description"
+        content="ポズナン(ポーランド)移住した夫婦がお送りする海外生活。夫婦で思い切って海外移住を決意。夫は日本での会社生活後、フリーランスを経てポズナンで起業し移住。妻は英語を勉強しつつ好きなお花に携われるよう日々奮闘中。現地での気ままな生活をお届け。"/>
+  <meta name="twitter:image" content="https://pozlife.net/wp-content/uploads/2017/12/S__27738115.jpg"/>
+  <meta itemprop="image" content="https://pozlife.net/wp-content/uploads/2017/12/S__27738115.jpg"/>
+  <!-- /all in one seo pack -->
+  <link rel='dns-prefetch' href='//s0.wp.com'/>
+  <link rel='dns-prefetch' href='//secure.gravatar.com'/>
+  <link rel='dns-prefetch' href='//fonts.googleapis.com'/>
+  <link rel='dns-prefetch' href='//s.w.org'/>
+  <link rel="alternate" type="application/rss+xml" title="ポズナンらいふ &raquo; フィード" href="https://pozlife.net/feed"/>
+  <link rel="alternate" type="application/rss+xml" title="ポズナンらいふ &raquo; コメントフィード"
+        href="https://pozlife.net/comments/feed"/>
+  <link rel='stylesheet' id='dashicons-css'
+        href='https://pozlife.net/wp-includes/css/dashicons.min.css?ver=f26897ae1058be25482154ee57f428c2'
+        type='text/css' media='all'/>
+  <link rel='stylesheet' id='activello-bootstrap-css'
+        href='https://pozlife.net/wp-content/themes/activello/assets/css/bootstrap.min.css?ver=f26897ae1058be25482154ee57f428c2'
+        type='text/css' media='all'/>
+  <link rel='stylesheet' id='activello-icons-css'
+        href='https://pozlife.net/wp-content/themes/activello/assets/css/font-awesome.min.css?ver=f26897ae1058be25482154ee57f428c2'
+        type='text/css' media='all'/>
+  <link rel='stylesheet' id='activello-fonts-css'
+        href='//fonts.googleapis.com/css?family=Lora%3A400%2C400italic%2C700%2C700italic%7CMontserrat%3A400%2C700%7CMaven+Pro%3A400%2C700&#038;ver=f26897ae1058be25482154ee57f428c2'
+        type='text/css' media='all'/>
+  <link rel='stylesheet' id='flexslider-css-css'
+        href='https://pozlife.net/wp-content/themes/activello/assets/css/flexslider.css?ver=f26897ae1058be25482154ee57f428c2'
+        type='text/css' media='all'/>
+  <link rel='stylesheet' id='activello-style-css'
+        href='https://pozlife.net/wp-content/themes/activello/style.css?ver=f26897ae1058be25482154ee57f428c2'
+        type='text/css' media='all'/>
+  <link rel='stylesheet' id='jetpack-widget-social-icons-styles-css'
+        href='https://pozlife.net/wp-content/plugins/jetpack/modules/widgets/social-icons/social-icons.css?ver=20170506'
+        type='text/css' media='all'/>
+  <link rel='stylesheet' id='jetpack_css-css'
+        href='https://pozlife.net/wp-content/plugins/jetpack/css/jetpack.css?ver=6.3.2' type='text/css' media='all'/>
+  <script type='text/javascript' src='https://pozlife.net/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+  <script type='text/javascript'
+          src='https://pozlife.net/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+  <script type='text/javascript'
+          src='https://pozlife.net/wp-content/themes/activello/assets/js/vendor/modernizr.min.js?ver=f26897ae1058be25482154ee57f428c2'></script>
+  <script type='text/javascript'
+          src='https://pozlife.net/wp-content/themes/activello/assets/js/vendor/bootstrap.min.js?ver=f26897ae1058be25482154ee57f428c2'></script>
+  <script type='text/javascript'
+          src='https://pozlife.net/wp-content/themes/activello/assets/js/functions.min.js?ver=f26897ae1058be25482154ee57f428c2'></script>
+  <link rel='https://api.w.org/' href='https://pozlife.net/wp-json/'/>
+  <link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://pozlife.net/xmlrpc.php?rsd"/>
+  <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://pozlife.net/wp-includes/wlwmanifest.xml"/>
+
+  <link rel='shortlink' href='https://wp.me/9j5Yo'/>
+
+  <link rel='dns-prefetch' href='//v0.wordpress.com'/>
+  <link rel='dns-prefetch' href='//widgets.wp.com'/>
+  <link rel='dns-prefetch' href='//s0.wp.com'/>
+  <link rel='dns-prefetch' href='//0.gravatar.com'/>
+  <link rel='dns-prefetch' href='//1.gravatar.com'/>
+  <link rel='dns-prefetch' href='//2.gravatar.com'/>
+  <link rel='dns-prefetch' href='//i0.wp.com'/>
+  <link rel='dns-prefetch' href='//i1.wp.com'/>
+  <link rel='dns-prefetch' href='//i2.wp.com'/>
+  <style type='text/css'>img#wpstats {
+    display: none
+  }</style>
+  <style type="text/css">a:hover, a:focus, article.post .post-categories a:hover,
+  .entry-title a:hover, .entry-meta a:hover, .entry-footer a:hover,
+  .read-more a:hover, .social-icons a:hover,
+  .flex-caption .post-categories a:hover, .flex-caption .read-more a:hover,
+  .flex-caption h2:hover, .comment-meta.commentmetadata a:hover,
+  .post-inner-content .cat-item a:hover, .navbar-default .navbar-nav > .active > a,
+  .navbar-default .navbar-nav > .active > a:hover,
+  .navbar-default .navbar-nav > .active > a:focus,
+  .navbar-default .navbar-nav > li > a:hover,
+  .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > .open > a,
+  .navbar-default .navbar-nav > .open > a:hover, blockquote:before,
+  .navbar-default .navbar-nav > .open > a:focus, .cat-title a,
+  .single .entry-content a, .site-info a:hover {
+    color: #dc143c
+  }
+
+  article.post .post-categories:after, .post-inner-content .cat-item:after, #secondary .widget-title:after, .dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
+    background: #dc143c
+  }
+
+  .btn-default:hover, .label-default[href]:hover,
+  .label-default[href]:focus, .btn-default:hover,
+  .btn-default:focus, .btn-default:active,
+  .btn-default.active, #image-navigation .nav-previous a:hover,
+  #image-navigation .nav-next a:hover, .woocommerce #respond input#submit:hover,
+  .woocommerce a.button:hover, .woocommerce button.button:hover,
+  .woocommerce input.button:hover, .woocommerce #respond input#submit.alt:hover,
+  .woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover,
+  .woocommerce input.button.alt:hover, .input-group-btn:last-child > .btn:hover, .scroll-to-top:hover,
+  button, html input[type=button]:hover, input[type=reset]:hover, .comment-list li .comment-body:after, .page-links a:hover span, .page-links span,
+  input[type=submit]:hover, .comment-form #submit:hover, .tagcloud a:hover,
+  .single .entry-content a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+  .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus,
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    background-color: #dc143c;
+  }
+
+  #social a:hover, .header-search-icon:hover {
+    color: #dc143c
+  }</style>
+  <style type="text/css">
+    #social li {
+      display: inline-block;
+    }
+
+    #social li,
+    #social ul {
+      border: 0 !important;
+      list-style: none;
+      padding-left: 0;
+      text-align: center;
+    }
+
+    #social li a[href*="twitter.com"] .fa:before,
+    .fa-twitter:before {
+      content: "\f099"
+    }
+
+    #social li a[href*="facebook.com"] .fa:before,
+    .fa-facebook-f:before,
+    .fa-facebook:before {
+      content: "\f09a"
+    }
+
+    #social li a[href*="github.com"] .fa:before,
+    .fa-github:before {
+      content: "\f09b"
+    }
+
+    #social li a[href*="/feed"] .fa:before,
+    .fa-rss:before {
+      content: "\f09e"
+    }
+
+    #social li a[href*="pinterest.com"] .fa:before,
+    .fa-pinterest:before {
+      content: "\f0d2"
+    }
+
+    #social li a[href*="plus.google.com"] .fa:before,
+    .fa-google-plus:before {
+      content: "\f0d5"
+    }
+
+    #social li a[href*="linkedin.com"] .fa:before,
+    .fa-linkedin:before {
+      content: "\f0e1"
+    }
+
+    #social li a[href*="youtube.com"] .fa:before,
+    .fa-youtube:before {
+      content: "\f167"
+    }
+
+    #social li a[href*="instagram.com"] .fa:before,
+    .fa-instagram:before {
+      content: "\f16d"
+    }
+
+    #social li a[href*="flickr.com"] .fa:before,
+    .fa-flickr:before {
+      content: "\f16e"
+    }
+
+    #social li a[href*="tumblr.com"] .fa:before,
+    .fa-tumblr:before {
+      content: "\f173"
+    }
+
+    #social li a[href*="dribbble.com"] .fa:before,
+    .fa-dribbble:before {
+      content: "\f17d"
+    }
+
+    #social li a[href*="skype.com"] .fa:before,
+    .fa-skype:before {
+      content: "\f17e"
+    }
+
+    #social li a[href*="foursquare.com"] .fa:before,
+    .fa-foursquare:before {
+      content: "\f180"
+    }
+
+    #social li a[href*="vimeo.com"] .fa:before,
+    .fa-vimeo-square:before {
+      content: "\f194"
+    }
+
+    #social li a[href*="weheartit.com"] .fa:before,
+    .fa-heart:before {
+      content: "\f004"
+    }
+
+    #social li a[href*="spotify.com"] .fa:before,
+    .fa-spotify:before {
+      content: "\f1bc"
+    }
+
+    #social li a[href*="soundcloud.com"] .fa:before,
+    .fa-soundcloud:before {
+      content: "\f1be"
+    }
+  </style>
+  <style type="text/css">.recentcomments a {
+    display: inline !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }</style>
+  <style type="text/css">.broken_link, a.broken_link {
+    text-decoration: line-through;
+  }</style>
+  <link rel="icon"
+        href="https://i0.wp.com/pozlife.net/wp-content/uploads/2017/12/cropped-S__27738115.jpg?fit=32%2C32&#038;ssl=1"
+        sizes="32x32"/>
+  <link rel="icon"
+        href="https://i0.wp.com/pozlife.net/wp-content/uploads/2017/12/cropped-S__27738115.jpg?fit=192%2C192&#038;ssl=1"
+        sizes="192x192"/>
+  <link rel="apple-touch-icon-precomposed"
+        href="https://i0.wp.com/pozlife.net/wp-content/uploads/2017/12/cropped-S__27738115.jpg?fit=180%2C180&#038;ssl=1"/>
+  <meta name="msapplication-TileImage"
+        content="https://i0.wp.com/pozlife.net/wp-content/uploads/2017/12/cropped-S__27738115.jpg?fit=270%2C270&#038;ssl=1"/>
+
+  <!-- BEGIN ExactMetrics v5.3.5 Universal Analytics - https://exactmetrics.com/ -->
+  <script>
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-111979617-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  <!-- END ExactMetrics Universal Analytics -->
+  <style type="text/css" id="wp-custom-css">
+    #secondary .widget-grofile .grofile-thumbnail {
+      width: 80px;
+      border-radius: 80px;
+      -webkit-border-radius: 80px;
+      -moz-border-radius: 80px;
+    }
+
+    .entry-content .wp-caption, .entry-content .thumbnail {
+      border: 0;
+    }
+  </style>
+
+</head>
+
+<body class="home blog wp-custom-logo group-blog has-sidebar-right half-posts">
+<div id="page" class="hfeed site">
+
+  <header id="masthead" class="site-header" role="banner">
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container">
+        <div class="row">
+          <div class="site-navigation-inner col-sm-12">
+            <div class="navbar-header">
+              <button type="button" class="btn navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">ナビゲーションを切り替え</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+              <ul id="menu-%e3%83%98%e3%83%83%e3%83%80%e3%83%bc%e3%83%a1%e3%83%8b%e3%83%a5%e3%83%bc"
+                  class="nav navbar-nav">
+                <li id="menu-item-91"
+                    class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-91 active">
+                  <a title="ホーム" href="https://pozlife.net">ホーム</a></li>
+                <li id="menu-item-95" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-95"><a
+                    title="お問い合わせ" href="https://pozlife.net/contact">お問い合わせ</a></li>
+              </ul>
+            </div>
+            <div class="nav-search">
+              <form action="https://pozlife.net/" method="get"><input type="text" name="s" value=""
+                                                                      placeholder="Search">
+                <button type="submit" class="header-search-icon" name="submit" id="searchsubmit" value="検索"><i
+                    class="fa fa-search"></i></button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav><!-- .site-navigation -->
+
+
+    <div class="container">
+      <div id="logo">
+        <h1 class="site-name">
+          <a href="https://pozlife.net/" class="custom-logo-link" rel="home" itemprop="url"><img width="248" height="32"
+                                                                                                 src="https://i2.wp.com/pozlife.net/wp-content/uploads/2018/01/ad5e98e16007ac2cd61c1e421f0db4ba.png?fit=248%2C32&amp;ssl=1"
+                                                                                                 class="custom-logo"
+                                                                                                 alt="ポズナンらいふ"
+                                                                                                 itemprop="logo"
+                                                                                                 data-attachment-id="81"
+                                                                                                 data-permalink="https://pozlife.net/%e3%83%9b%e3%82%9a%e3%82%b9%e3%82%99%e3%83%8a%e3%83%b3%e3%82%89%e3%81%84%e3%81%b5"
+                                                                                                 data-orig-file="https://i2.wp.com/pozlife.net/wp-content/uploads/2018/01/ad5e98e16007ac2cd61c1e421f0db4ba.png?fit=248%2C32&amp;ssl=1"
+                                                                                                 data-orig-size="248,32"
+                                                                                                 data-comments-opened="1"
+                                                                                                 data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}"
+                                                                                                 data-image-title="ポズナンらいふ"
+                                                                                                 data-image-description=""
+                                                                                                 data-medium-file="https://i2.wp.com/pozlife.net/wp-content/uploads/2018/01/ad5e98e16007ac2cd61c1e421f0db4ba.png?fit=248%2C32&amp;ssl=1"
+                                                                                                 data-large-file="https://i2.wp.com/pozlife.net/wp-content/uploads/2018/01/ad5e98e16007ac2cd61c1e421f0db4ba.png?fit=248%2C32&amp;ssl=1"/></a>
+        </h1><!-- end of .site-name -->
+
+        <div class="tagline">ポズナン(ポーランド)移住した夫婦がお届けする海外生活</div>
+      </div><!-- end of #logo -->
+
+    </div>
+
+  </header><!-- #masthead -->
+
+
+  <div id="content" class="site-content">
+
+    <div class="top-section">
+      <div class="flexslider">
+        <ul class="slides">
+          <li><img
+              src="https://i1.wp.com/pozlife.net/wp-content/uploads/2018/07/IMG_3635.jpg?fit=4032%2C3024&ssl=1&resize=1920%2C550">
+            <div class="flex-caption">
+              <ul class="post-categories">
+                <li><a href="https://pozlife.net/category/football" rel="category tag">サッカー</a></li>
+              </ul>
+              <a href="https://pozlife.net/football/soccer-worldcup"><h2 class="entry-title">
+                ポーランド人に囲まれてのサッカーワールドカップ（2018年）</h2></a>
+              <div class="read-more"><a href="https://pozlife.net/football/soccer-worldcup">もっと見る</a></div>
+            </div>
+          </li>
+          <li><img
+              src="https://i1.wp.com/pozlife.net/wp-content/uploads/2018/06/IMG_2723.jpg?fit=4032%2C3024&ssl=1&resize=1920%2C550">
+            <div class="flex-caption">
+              <ul class="post-categories">
+                <li><a href="https://pozlife.net/category/gourmet" rel="category tag">グルメ</a></li>
+              </ul>
+              <a href="https://pozlife.net/gourmet/cafe"><h2 class="entry-title">ポズナンのカフェ特集</h2></a>
+              <div class="read-more"><a href="https://pozlife.net/gourmet/cafe">もっと見る</a></div>
+            </div>
+          </li>
+          <li><img
+              src="https://i2.wp.com/pozlife.net/wp-content/uploads/2018/05/IMG_3320.jpg?fit=4032%2C3024&ssl=1&resize=1920%2C550">
+            <div class="flex-caption">
+              <ul class="post-categories">
+                <li><a href="https://pozlife.net/category/trip" rel="category tag">旅行</a></li>
+              </ul>
+              <a href="https://pozlife.net/trip/jeleniagora-trip"><h2 class="entry-title">友達の住む街へ遊びに〜Jelenia Gora and
+                Boleslawice</h2></a>
+              <div class="read-more"><a href="https://pozlife.net/trip/jeleniagora-trip">もっと見る</a></div>
+            </div>
+          </li>
+          <li><img
+              src="https://i0.wp.com/pozlife.net/wp-content/uploads/2018/05/IMG_3219.jpg?fit=4032%2C3024&ssl=1&resize=1920%2C550">
+            <div class="flex-caption">
+              <ul class="post-categories">
+                <li><a href="https://pozlife.net/category/life" rel="category tag">生活</a></li>
+              </ul>
+              <a href="https://pozlife.net/life/ikebana-workshop"><h2 class="entry-title">ポーランドの大学生へいけばなワークショップ</h2></a>
+              <div class="read-more"><a href="https://pozlife.net/life/ikebana-workshop">もっと見る</a></div>
+            </div>
+          </li>
+          <li><img
+              src="https://i1.wp.com/pozlife.net/wp-content/uploads/2018/05/IMG_3091.jpg?fit=4032%2C3024&ssl=1&resize=1920%2C550">
+            <div class="flex-caption">
+              <ul class="post-categories">
+                <li><a href="https://pozlife.net/category/trip" rel="category tag">旅行</a></li>
+              </ul>
+              <a href="https://pozlife.net/trip/berlin-trip"><h2 class="entry-title">ベルリンとポツダムへの旅〜</h2></a>
+              <div class="read-more"><a href="https://pozlife.net/trip/berlin-trip">もっと見る</a></div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container main-content-area">
+
+
+      <div class="row">
+        <div class="main-content-inner col-sm-12 col-md-8 ">
+
+          <div id="primary" class="content-area">
+
+            <main id="main" class="site-main page-1" role="main">
+
+
+              <div class="article-container">
+
+
+                <article id="post-796"
+                         class="post-796 post type-post status-publish format-standard has-post-thumbnail hentry category-football tag-w tag-65 tag-17 tag-107 tag-108">
+                  <div class="blog-item-wrap">
+                    <div class="post-inner-content">
+                      <header class="entry-header page-header">
+                        <ul class="single-category">
+                          <li class="cat-item cat-item-7"><a href="https://pozlife.net/category/football">サッカー</a>
+                          </li>
+                        </ul>
+                        <h2 class="entry-title"><a href="https://pozlife.net/football/soccer-worldcup" rel="bookmark">ポーランド人に囲まれてのサッカーワールドカップ（2018年）</a>
+                        </h2>
+
+                        <div class="entry-meta">
+                          <span class="posted-on">投稿日 <a href="https://pozlife.net/football/soccer-worldcup"
+                                                         rel="bookmark"><time class="entry-date published"
+                                                                              datetime="2018-07-05T14:56:52+00:00">2018年7月5日</time><time
+                              class="updated" datetime="2018-07-05T14:57:32+00:00">2018年7月5日</time></a></span>by <span
+                            class="author vcard"><a class="url fn n"
+                                                    href="https://pozlife.net/author/amy">amy</a></span>
+
+                        </div><!-- .entry-meta -->
+                      </header><!-- .entry-header -->
+
+                      <a href="https://pozlife.net/football/soccer-worldcup" title="ポーランド人に囲まれてのサッカーワールドカップ（2018年）">
+                        <img width="710" height="335"
+                             src="https://i1.wp.com/pozlife.net/wp-content/uploads/2018/07/IMG_3635.jpg?resize=710%2C335&amp;ssl=1"
+                             class="single-featured wp-post-image" alt=""
+                             srcset="https://i1.wp.com/pozlife.net/wp-content/uploads/2018/07/IMG_3635.jpg?resize=1170%2C550&amp;ssl=1 1170w, https://i1.wp.com/pozlife.net/wp-content/uploads/2018/07/IMG_3635.jpg?resize=710%2C335&amp;ssl=1 710w, https://i1.wp.com/pozlife.net/wp-content/uploads/2018/07/IMG_3635.jpg?zoom=2&amp;resize=710%2C335&amp;ssl=1 1420w, https://i1.wp.com/pozlife.net/wp-content/uploads/2018/07/IMG_3635.jpg?zoom=3&amp;resize=710%2C335&amp;ssl=1 2130w"
+                             sizes="(max-width: 710px) 100vw, 710px" data-attachment-id="814"
+                             data-permalink="https://pozlife.net/football/soccer-worldcup/attachment/img_3635"
+                             data-orig-file="https://i1.wp.com/pozlife.net/wp-content/uploads/2018/07/IMG_3635.jpg?fit=4032%2C3024&amp;ssl=1"
+                             data-orig-size="4032,3024" data-comments-opened="1"
+                             data-image-meta="{&quot;aperture&quot;:&quot;2.2&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;iPhone SE&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;1530561287&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;4.15&quot;,&quot;iso&quot;:&quot;25&quot;,&quot;shutter_speed&quot;:&quot;0.0045045045045045&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;1&quot;}"
+                             data-image-title="IMG_3635" data-image-description=""
+                             data-medium-file="https://i1.wp.com/pozlife.net/wp-content/uploads/2018/07/IMG_3635.jpg?fit=300%2C225&amp;ssl=1"
+                             data-large-file="https://i1.wp.com/pozlife.net/wp-content/uploads/2018/07/IMG_3635.jpg?fit=697%2C523&amp;ssl=1"/>
+                      </a>
+
+                      <div class="entry-content">
+
+                        <p>
+                          4年に1度の待ちに待ったワールドカップが始まりました。私はサッカーに興味はないのですがW杯だけは見るという、ミーハーですみません。こっちにくる前にグループが決まり、対戦相手の中にポーランドがありなんという偶然かとみんなで
+                          [&hellip;]</p>
+
+
+                        <div class="read-more">
+                          <a href="https://pozlife.net/football/soccer-worldcup" title="ポーランド人に囲まれてのサッカーワールドカップ（2018年）">もっと見る</a>
+                        </div>
+
+                        <div class="entry-footer">
+                          <span class="comments-link"><a href="https://pozlife.net/football/soccer-worldcup#respond">No comments yet</a></span>
+                        </div><!-- .entry-footer -->
+                      </div><!-- .entry-content -->
+                    </div>
+                  </div>
+                </article><!-- #post-## -->
+
+
+                <article id="post-465"
+                         class="post-465 post type-post status-publish format-standard has-post-thumbnail hentry category-gourmet tag-cafe tag-105 tag-103 tag-24 tag-17">
+                  <div class="blog-item-wrap">
+                    <div class="post-inner-content">
+                      <header class="entry-header page-header">
+                        <ul class="single-category">
+                          <li class="cat-item cat-item-6"><a href="https://pozlife.net/category/gourmet">グルメ</a>
+                          </li>
+                        </ul>
+                        <h2 class="entry-title"><a href="https://pozlife.net/gourmet/cafe" rel="bookmark">ポズナンのカフェ特集</a>
+                        </h2>
+
+                        <div class="entry-meta">
+                          <span class="posted-on">投稿日 <a href="https://pozlife.net/gourmet/cafe" rel="bookmark"><time
+                              class="entry-date published"
+                              datetime="2018-07-01T10:46:59+00:00">2018年7月1日</time></a></span>by <span
+                            class="author vcard"><a class="url fn n"
+                                                    href="https://pozlife.net/author/amy">amy</a></span>
+
+                        </div><!-- .entry-meta -->
+                      </header><!-- .entry-header -->
+
+                      <a href="https://pozlife.net/gourmet/cafe" title="ポズナンのカフェ特集">
+                        <img width="710" height="335"
+                             src="https://i1.wp.com/pozlife.net/wp-content/uploads/2018/06/IMG_2723.jpg?resize=710%2C335&amp;ssl=1"
+                             class="single-featured wp-post-image" alt=""
+                             srcset="https://i1.wp.com/pozlife.net/wp-content/uploads/2018/06/IMG_2723.jpg?resize=1170%2C550&amp;ssl=1 1170w, https://i1.wp.com/pozlife.net/wp-content/uploads/2018/06/IMG_2723.jpg?resize=710%2C335&amp;ssl=1 710w, https://i1.wp.com/pozlife.net/wp-content/uploads/2018/06/IMG_2723.jpg?zoom=2&amp;resize=710%2C335&amp;ssl=1 1420w, https://i1.wp.com/pozlife.net/wp-content/uploads/2018/06/IMG_2723.jpg?zoom=3&amp;resize=710%2C335&amp;ssl=1 2130w"
+                             sizes="(max-width: 710px) 100vw, 710px" data-attachment-id="750"
+                             data-permalink="https://pozlife.net/gourmet/cafe/attachment/img_2723"
+                             data-orig-file="https://i1.wp.com/pozlife.net/wp-content/uploads/2018/06/IMG_2723.jpg?fit=4032%2C3024&amp;ssl=1"
+                             data-orig-size="4032,3024" data-comments-opened="1"
+                             data-image-meta="{&quot;aperture&quot;:&quot;2.2&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;iPhone SE&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;1521994000&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;4.15&quot;,&quot;iso&quot;:&quot;250&quot;,&quot;shutter_speed&quot;:&quot;0.03030303030303&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;1&quot;}"
+                             data-image-title="IMG_2723" data-image-description=""
+                             data-medium-file="https://i1.wp.com/pozlife.net/wp-content/uploads/2018/06/IMG_2723.jpg?fit=300%2C225&amp;ssl=1"
+                             data-large-file="https://i1.wp.com/pozlife.net/wp-content/uploads/2018/06/IMG_2723.jpg?fit=697%2C523&amp;ssl=1"/>
+                      </a>
+
+                      <div class="entry-content">
+
+                        <p>
+                          カフェめぐりが大好き。ここポズナンにはおしゃれカフェがたーくさんあります。ありすぎる！今住んでいる家は中心に近いのもあって、外に出ればすぐ10件ほど並んでいるし少し歩けばもっとあります。こんなにあるとどこへ入ろうかと迷っ
+                          [&hellip;]</p>
+
+
+                        <div class="read-more">
+                          <a href="https://pozlife.net/gourmet/cafe" title="ポズナンのカフェ特集">もっと見る</a>
+                        </div>
+
+                        <div class="entry-footer">
+                          <span class="comments-link"><a
+                              href="https://pozlife.net/gourmet/cafe#respond">No comments yet</a></span>
+                        </div><!-- .entry-footer -->
+                      </div><!-- .entry-content -->
+                    </div>
+                  </div>
+                </article><!-- #post-## -->
+
+
+                <article id="post-639"
+                         class="post-639 post type-post status-publish format-standard has-post-thumbnail hentry category-trip tag-98 tag-100 tag-99 tag-17 tag-101 tag-102">
+                  <div class="blog-item-wrap">
+                    <div class="post-inner-content">
+                      <header class="entry-header page-header">
+                        <ul class="single-category">
+                          <li class="cat-item cat-item-62"><a href="https://pozlife.net/category/trip">旅行</a>
+                          </li>
+                        </ul>
+                        <h2 class="entry-title"><a href="https://pozlife.net/trip/jeleniagora-trip" rel="bookmark">友達の住む街へ遊びに〜Jelenia
+                          Gora and Boleslawice</a></h2>
+
+                        <div class="entry-meta">
+                          <span class="posted-on">投稿日 <a href="https://pozlife.net/trip/jeleniagora-trip"
+                                                         rel="bookmark"><time class="entry-date published"
+                                                                              datetime="2018-06-03T11:35:08+00:00">2018年6月3日</time><time
+                              class="updated" datetime="2018-06-20T21:58:19+00:00">2018年6月20日</time></a></span>by <span
+                            class="author vcard"><a class="url fn n"
+                                                    href="https://pozlife.net/author/amy">amy</a></span>
+
+                        </div><!-- .entry-meta -->
+                      </header><!-- .entry-header -->
+
+                      <a href="https://pozlife.net/trip/jeleniagora-trip"
+                         title="友達の住む街へ遊びに〜Jelenia Gora and Boleslawice">
+                        <img width="330" height="220"
+                             src="https://i2.wp.com/pozlife.net/wp-content/uploads/2018/05/IMG_3320.jpg?resize=330%2C220&amp;ssl=1"
+                             class="single-featured wp-post-image" alt=""
+                             srcset="https://i2.wp.com/pozlife.net/wp-content/uploads/2018/05/IMG_3320.jpg?resize=330%2C220&amp;ssl=1 330w, https://i2.wp.com/pozlife.net/wp-content/uploads/2018/05/IMG_3320.jpg?zoom=2&amp;resize=330%2C220&amp;ssl=1 660w, https://i2.wp.com/pozlife.net/wp-content/uploads/2018/05/IMG_3320.jpg?zoom=3&amp;resize=330%2C220&amp;ssl=1 990w"
+                             sizes="(max-width: 330px) 100vw, 330px" data-attachment-id="645"
+                             data-permalink="https://pozlife.net/trip/jeleniagora-trip/attachment/img_3320"
+                             data-orig-file="https://i2.wp.com/pozlife.net/wp-content/uploads/2018/05/IMG_3320.jpg?fit=4032%2C3024&amp;ssl=1"
+                             data-orig-size="4032,3024" data-comments-opened="1"
+                             data-image-meta="{&quot;aperture&quot;:&quot;2.2&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;iPhone SE&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;1526563268&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;4.15&quot;,&quot;iso&quot;:&quot;25&quot;,&quot;shutter_speed&quot;:&quot;0.00075414781297134&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}"
+                             data-image-title="IMG_3320" data-image-description=""
+                             data-medium-file="https://i2.wp.com/pozlife.net/wp-content/uploads/2018/05/IMG_3320.jpg?fit=300%2C225&amp;ssl=1"
+                             data-large-file="https://i2.wp.com/pozlife.net/wp-content/uploads/2018/05/IMG_3320.jpg?fit=697%2C523&amp;ssl=1"/>
+                      </a>
+
+                      <div class="entry-content">
+
+                        <p>
+                          友達の住む街、イェレニャ・グーラまで遊びに行ってきました。ポズナンから電車で直通が出ていて（時間はかぎられますが）約5時間で着きます。なぜかこの日は遅延していて掲示板には遅れ5分→30分→結局1時間ほど遅れて、、友達曰く
+                          [&hellip;]</p>
+
+
+                        <div class="read-more">
+                          <a href="https://pozlife.net/trip/jeleniagora-trip"
+                             title="友達の住む街へ遊びに〜Jelenia Gora and Boleslawice">もっと見る</a>
+                        </div>
+
+                        <div class="entry-footer">
+                          <span class="comments-link"><a href="https://pozlife.net/trip/jeleniagora-trip#respond">No comments yet</a></span>
+                        </div><!-- .entry-footer -->
+                      </div><!-- .entry-content -->
+                    </div>
+                  </div>
+                </article><!-- #post-## -->
+
+
+                <article id="post-591"
+                         class="post-591 post type-post status-publish format-standard has-post-thumbnail hentry category-life tag-95 tag-24 tag-17 tag-97 tag-96">
+                  <div class="blog-item-wrap">
+                    <div class="post-inner-content">
+                      <header class="entry-header page-header">
+                        <ul class="single-category">
+                          <li class="cat-item cat-item-4"><a href="https://pozlife.net/category/life">生活</a>
+                          </li>
+                        </ul>
+                        <h2 class="entry-title"><a href="https://pozlife.net/life/ikebana-workshop" rel="bookmark">ポーランドの大学生へいけばなワークショップ</a>
+                        </h2>
+
+                        <div class="entry-meta">
+                          <span class="posted-on">投稿日 <a href="https://pozlife.net/life/ikebana-workshop"
+                                                         rel="bookmark"><time class="entry-date published"
+                                                                              datetime="2018-05-18T23:57:24+00:00">2018年5月18日</time></a></span>by
+                          <span class="author vcard"><a class="url fn n"
+                                                        href="https://pozlife.net/author/amy">amy</a></span>
+
+                        </div><!-- .entry-meta -->
+                      </header><!-- .entry-header -->
+
+                      <a href="https://pozlife.net/life/ikebana-workshop" title="ポーランドの大学生へいけばなワークショップ">
+                        <img width="330" height="220"
+                             src="https://i0.wp.com/pozlife.net/wp-content/uploads/2018/05/IMG_3219.jpg?resize=330%2C220&amp;ssl=1"
+                             class="single-featured wp-post-image" alt=""
+                             srcset="https://i0.wp.com/pozlife.net/wp-content/uploads/2018/05/IMG_3219.jpg?resize=330%2C220&amp;ssl=1 330w, https://i0.wp.com/pozlife.net/wp-content/uploads/2018/05/IMG_3219.jpg?zoom=2&amp;resize=330%2C220&amp;ssl=1 660w, https://i0.wp.com/pozlife.net/wp-content/uploads/2018/05/IMG_3219.jpg?zoom=3&amp;resize=330%2C220&amp;ssl=1 990w"
+                             sizes="(max-width: 330px) 100vw, 330px" data-attachment-id="628"
+                             data-permalink="https://pozlife.net/life/ikebana-workshop/attachment/img_3219"
+                             data-orig-file="https://i0.wp.com/pozlife.net/wp-content/uploads/2018/05/IMG_3219.jpg?fit=4032%2C3024&amp;ssl=1"
+                             data-orig-size="4032,3024" data-comments-opened="1"
+                             data-image-meta="{&quot;aperture&quot;:&quot;2.2&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;iPhone SE&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;1525272447&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;4.15&quot;,&quot;iso&quot;:&quot;200&quot;,&quot;shutter_speed&quot;:&quot;0.05&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}"
+                             data-image-title="IMG_3219" data-image-description=""
+                             data-medium-file="https://i0.wp.com/pozlife.net/wp-content/uploads/2018/05/IMG_3219.jpg?fit=300%2C225&amp;ssl=1"
+                             data-large-file="https://i0.wp.com/pozlife.net/wp-content/uploads/2018/05/IMG_3219.jpg?fit=697%2C523&amp;ssl=1"/>
+                      </a>
+
+                      <div class="entry-content">
+
+                        <p>
+                          ポズナンには日本語学科がある大学があります。そこで以前、日本語弁論大会があり少しだけ参加。その後の打ち上げで出会った女の子と話をしていて私がいけばなをやっているという話をしたら、今度ポーランド全体の日本語学科が集まっての
+                          [&hellip;]</p>
+
+
+                        <div class="read-more">
+                          <a href="https://pozlife.net/life/ikebana-workshop" title="ポーランドの大学生へいけばなワークショップ">もっと見る</a>
+                        </div>
+
+                        <div class="entry-footer">
+                          <span class="comments-link"><a href="https://pozlife.net/life/ikebana-workshop#respond">No comments yet</a></span>
+                        </div><!-- .entry-footer -->
+                      </div><!-- .entry-content -->
+                    </div>
+                  </div>
+                </article><!-- #post-## -->
+
+
+                <article id="post-569"
+                         class="post-569 post type-post status-publish format-standard has-post-thumbnail hentry category-trip tag-13 tag-91 tag-92 tag-93 tag-94">
+                  <div class="blog-item-wrap">
+                    <div class="post-inner-content">
+                      <header class="entry-header page-header">
+                        <ul class="single-category">
+                          <li class="cat-item cat-item-62"><a href="https://pozlife.net/category/trip">旅行</a>
+                          </li>
+                        </ul>
+                        <h2 class="entry-title"><a href="https://pozlife.net/trip/berlin-trip" rel="bookmark">ベルリンとポツダムへの旅〜</a>
+                        </h2>
+
+                        <div class="entry-meta">
+                          <span class="posted-on">投稿日 <a href="https://pozlife.net/trip/berlin-trip" rel="bookmark"><time
+                              class="entry-date published" datetime="2018-05-15T00:00:57+00:00">2018年5月15日</time><time
+                              class="updated" datetime="2018-05-14T20:28:24+00:00">2018年5月14日</time></a></span>by <span
+                            class="author vcard"><a class="url fn n"
+                                                    href="https://pozlife.net/author/amy">amy</a></span>
+
+                        </div><!-- .entry-meta -->
+                      </header><!-- .entry-header -->
+
+                      <a href="https://pozlife.net/trip/berlin-trip" title="ベルリンとポツダムへの旅〜">
+                        <img width="330" height="220"
+                             src="https://i1.wp.com/pozlife.net/wp-content/uploads/2018/05/IMG_3091.jpg?resize=330%2C220&amp;ssl=1"
+                             class="single-featured wp-post-image" alt=""
+                             srcset="https://i1.wp.com/pozlife.net/wp-content/uploads/2018/05/IMG_3091.jpg?resize=330%2C220&amp;ssl=1 330w, https://i1.wp.com/pozlife.net/wp-content/uploads/2018/05/IMG_3091.jpg?zoom=2&amp;resize=330%2C220&amp;ssl=1 660w, https://i1.wp.com/pozlife.net/wp-content/uploads/2018/05/IMG_3091.jpg?zoom=3&amp;resize=330%2C220&amp;ssl=1 990w"
+                             sizes="(max-width: 330px) 100vw, 330px" data-attachment-id="623"
+                             data-permalink="https://pozlife.net/trip/berlin-trip/attachment/img_3091"
+                             data-orig-file="https://i1.wp.com/pozlife.net/wp-content/uploads/2018/05/IMG_3091.jpg?fit=4032%2C3024&amp;ssl=1"
+                             data-orig-size="4032,3024" data-comments-opened="1"
+                             data-image-meta="{&quot;aperture&quot;:&quot;2.2&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;iPhone SE&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;1525026458&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;4.15&quot;,&quot;iso&quot;:&quot;25&quot;,&quot;shutter_speed&quot;:&quot;0.00029904306220096&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}"
+                             data-image-title="IMG_3091" data-image-description=""
+                             data-medium-file="https://i1.wp.com/pozlife.net/wp-content/uploads/2018/05/IMG_3091.jpg?fit=300%2C225&amp;ssl=1"
+                             data-large-file="https://i1.wp.com/pozlife.net/wp-content/uploads/2018/05/IMG_3091.jpg?fit=697%2C523&amp;ssl=1"/>
+                      </a>
+
+                      <div class="entry-content">
+
+                        <p>ポズナンからバスで約4時間、ベルリンへ旅行に行きました。利用したバスは FlixBus
+                          という会社の高速バスです。ポズナンから様々な国へ行けるみたいですね。バスは安くて乗り換えなし！更に無料 WiFi も使えます（場所に [&hellip;]</p>
+
+
+                        <div class="read-more">
+                          <a href="https://pozlife.net/trip/berlin-trip" title="ベルリンとポツダムへの旅〜">もっと見る</a>
+                        </div>
+
+                        <div class="entry-footer">
+                          <span class="comments-link"><a href="https://pozlife.net/trip/berlin-trip#respond">No comments yet</a></span>
+                        </div><!-- .entry-footer -->
+                      </div><!-- .entry-content -->
+                    </div>
+                  </div>
+                </article><!-- #post-## -->
+
+
+                <article id="post-472"
+                         class="post-472 post type-post status-publish format-standard has-post-thumbnail hentry category-trip tag-86 tag-85 tag-82 tag-17 tag-50 tag-84 tag-83">
+                  <div class="blog-item-wrap">
+                    <div class="post-inner-content">
+                      <header class="entry-header page-header">
+                        <ul class="single-category">
+                          <li class="cat-item cat-item-62"><a href="https://pozlife.net/category/trip">旅行</a>
+                          </li>
+                        </ul>
+                        <h2 class="entry-title"><a href="https://pozlife.net/trip/torun"
+                                                   rel="bookmark">世界遺産の街、トルンへ日帰りの旅</a></h2>
+
+                        <div class="entry-meta">
+                          <span class="posted-on">投稿日 <a href="https://pozlife.net/trip/torun" rel="bookmark"><time
+                              class="entry-date published" datetime="2018-04-20T09:00:13+00:00">2018年4月20日</time><time
+                              class="updated" datetime="2018-04-18T18:19:07+00:00">2018年4月18日</time></a></span>by <span
+                            class="author vcard"><a class="url fn n"
+                                                    href="https://pozlife.net/author/amy">amy</a></span>
+
+                        </div><!-- .entry-meta -->
+                      </header><!-- .entry-header -->
+
+                      <a href="https://pozlife.net/trip/torun" title="世界遺産の街、トルンへ日帰りの旅">
+                        <img width="330" height="220"
+                             src="https://i1.wp.com/pozlife.net/wp-content/uploads/2018/04/IMG_2803.jpg?resize=330%2C220&amp;ssl=1"
+                             class="single-featured wp-post-image" alt=""
+                             srcset="https://i1.wp.com/pozlife.net/wp-content/uploads/2018/04/IMG_2803.jpg?resize=330%2C220&amp;ssl=1 330w, https://i1.wp.com/pozlife.net/wp-content/uploads/2018/04/IMG_2803.jpg?zoom=2&amp;resize=330%2C220&amp;ssl=1 660w, https://i1.wp.com/pozlife.net/wp-content/uploads/2018/04/IMG_2803.jpg?zoom=3&amp;resize=330%2C220&amp;ssl=1 990w"
+                             sizes="(max-width: 330px) 100vw, 330px" data-attachment-id="562"
+                             data-permalink="https://pozlife.net/img_2803"
+                             data-orig-file="https://i1.wp.com/pozlife.net/wp-content/uploads/2018/04/IMG_2803.jpg?fit=1136%2C852&amp;ssl=1"
+                             data-orig-size="1136,852" data-comments-opened="1"
+                             data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;1&quot;}"
+                             data-image-title="IMG_2803" data-image-description=""
+                             data-medium-file="https://i1.wp.com/pozlife.net/wp-content/uploads/2018/04/IMG_2803.jpg?fit=300%2C225&amp;ssl=1"
+                             data-large-file="https://i1.wp.com/pozlife.net/wp-content/uploads/2018/04/IMG_2803.jpg?fit=697%2C523&amp;ssl=1"/>
+                      </a>
+
+                      <div class="entry-content">
+
+                        <p>朝起きて、トルンに行こう！となりすぐに電車のチケットを手配し出発。起きてから1時間後には駅に向かっていました（笑） 
+                          ギリギリ電車に乗り込み席へ。6人一部屋的な感じの席で、でもその時はひとりの年配女性のみ。その女性はポー [&hellip;]</p>
+
+
+                        <div class="read-more">
+                          <a href="https://pozlife.net/trip/torun" title="世界遺産の街、トルンへ日帰りの旅">もっと見る</a>
+                        </div>
+
+                        <div class="entry-footer">
+                          <span class="comments-link"><a
+                              href="https://pozlife.net/trip/torun#respond">No comments yet</a></span>
+                        </div><!-- .entry-footer -->
+                      </div><!-- .entry-content -->
+                    </div>
+                  </div>
+                </article><!-- #post-## -->
+
+
+                <article id="post-487"
+                         class="post-487 post type-post status-publish format-standard has-post-thumbnail hentry category-life tag-87 tag-24 tag-17 tag-88">
+                  <div class="blog-item-wrap">
+                    <div class="post-inner-content">
+                      <header class="entry-header page-header">
+                        <ul class="single-category">
+                          <li class="cat-item cat-item-4"><a href="https://pozlife.net/category/life">生活</a>
+                          </li>
+                        </ul>
+                        <h2 class="entry-title"><a href="https://pozlife.net/life/ballet-romioandjuliet" rel="bookmark">初めてのバレエ鑑賞〜ロミオ＆ジュリエット</a>
+                        </h2>
+
+                        <div class="entry-meta">
+                          <span class="posted-on">投稿日 <a href="https://pozlife.net/life/ballet-romioandjuliet"
+                                                         rel="bookmark"><time class="entry-date published"
+                                                                              datetime="2018-04-06T10:00:27+00:00">2018年4月6日</time><time
+                              class="updated" datetime="2018-04-06T10:34:21+00:00">2018年4月6日</time></a></span>by <span
+                            class="author vcard"><a class="url fn n"
+                                                    href="https://pozlife.net/author/amy">amy</a></span>
+
+                        </div><!-- .entry-meta -->
+                      </header><!-- .entry-header -->
+
+                      <a href="https://pozlife.net/life/ballet-romioandjuliet" title="初めてのバレエ鑑賞〜ロミオ＆ジュリエット">
+                        <img width="330" height="220"
+                             src="https://i2.wp.com/pozlife.net/wp-content/uploads/2018/03/IMG_2574.jpg?resize=330%2C220&amp;ssl=1"
+                             class="single-featured wp-post-image" alt=""
+                             srcset="https://i2.wp.com/pozlife.net/wp-content/uploads/2018/03/IMG_2574.jpg?resize=330%2C220&amp;ssl=1 330w, https://i2.wp.com/pozlife.net/wp-content/uploads/2018/03/IMG_2574.jpg?zoom=2&amp;resize=330%2C220&amp;ssl=1 660w, https://i2.wp.com/pozlife.net/wp-content/uploads/2018/03/IMG_2574.jpg?zoom=3&amp;resize=330%2C220&amp;ssl=1 990w"
+                             sizes="(max-width: 330px) 100vw, 330px" data-attachment-id="494"
+                             data-permalink="https://pozlife.net/life/ballet-romioandjuliet/attachment/img_2574"
+                             data-orig-file="https://i2.wp.com/pozlife.net/wp-content/uploads/2018/03/IMG_2574.jpg?fit=3024%2C4032&amp;ssl=1"
+                             data-orig-size="3024,4032" data-comments-opened="1"
+                             data-image-meta="{&quot;aperture&quot;:&quot;2.2&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;iPhone SE&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;1521065205&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;4.15&quot;,&quot;iso&quot;:&quot;160&quot;,&quot;shutter_speed&quot;:&quot;0.03030303030303&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}"
+                             data-image-title="IMG_2574" data-image-description=""
+                             data-medium-file="https://i2.wp.com/pozlife.net/wp-content/uploads/2018/03/IMG_2574.jpg?fit=225%2C300&amp;ssl=1"
+                             data-large-file="https://i2.wp.com/pozlife.net/wp-content/uploads/2018/03/IMG_2574.jpg?fit=697%2C929&amp;ssl=1"/>
+                      </a>
+
+                      <div class="entry-content">
+
+                        <p>
+                          友達がポズナンでバレエを見れるよ、このバレエグループはおすすめ！とチケットを購入できるサイトを送ってきてくれました。今まで一度もバレエを見たことがなかったのと、今回のはロミオとジュリエットで内容も知っているものだったのも
+                          [&hellip;]</p>
+
+
+                        <div class="read-more">
+                          <a href="https://pozlife.net/life/ballet-romioandjuliet"
+                             title="初めてのバレエ鑑賞〜ロミオ＆ジュリエット">もっと見る</a>
+                        </div>
+
+                        <div class="entry-footer">
+                          <span class="comments-link"><a href="https://pozlife.net/life/ballet-romioandjuliet#respond">No comments yet</a></span>
+                        </div><!-- .entry-footer -->
+                      </div><!-- .entry-content -->
+                    </div>
+                  </div>
+                </article><!-- #post-## -->
+
+
+                <article id="post-401"
+                         class="post-401 post type-post status-publish format-standard has-post-thumbnail hentry category-life tag-81 tag-78 tag-80 tag-24 tag-17 tag-26">
+                  <div class="blog-item-wrap">
+                    <div class="post-inner-content">
+                      <header class="entry-header page-header">
+                        <ul class="single-category">
+                          <li class="cat-item cat-item-4"><a href="https://pozlife.net/category/life">生活</a>
+                          </li>
+                        </ul>
+                        <h2 class="entry-title"><a href="https://pozlife.net/life/polish-festival" rel="bookmark">とある日曜日、広場でのイベントに遭遇</a>
+                        </h2>
+
+                        <div class="entry-meta">
+                          <span class="posted-on">投稿日 <a href="https://pozlife.net/life/polish-festival" rel="bookmark"><time
+                              class="entry-date published" datetime="2018-03-26T10:00:04+00:00">2018年3月26日</time><time
+                              class="updated" datetime="2018-03-26T10:27:44+00:00">2018年3月26日</time></a></span>by <span
+                            class="author vcard"><a class="url fn n"
+                                                    href="https://pozlife.net/author/amy">amy</a></span>
+
+                        </div><!-- .entry-meta -->
+                      </header><!-- .entry-header -->
+
+                      <a href="https://pozlife.net/life/polish-festival" title="とある日曜日、広場でのイベントに遭遇">
+                        <img width="330" height="220"
+                             src="https://i1.wp.com/pozlife.net/wp-content/uploads/2018/03/IMG_2494.jpg?resize=330%2C220&amp;ssl=1"
+                             class="single-featured wp-post-image" alt=""
+                             srcset="https://i1.wp.com/pozlife.net/wp-content/uploads/2018/03/IMG_2494.jpg?resize=330%2C220&amp;ssl=1 330w, https://i1.wp.com/pozlife.net/wp-content/uploads/2018/03/IMG_2494.jpg?zoom=2&amp;resize=330%2C220&amp;ssl=1 660w, https://i1.wp.com/pozlife.net/wp-content/uploads/2018/03/IMG_2494.jpg?zoom=3&amp;resize=330%2C220&amp;ssl=1 990w"
+                             sizes="(max-width: 330px) 100vw, 330px" data-attachment-id="462"
+                             data-permalink="https://pozlife.net/img_2494"
+                             data-orig-file="https://i1.wp.com/pozlife.net/wp-content/uploads/2018/03/IMG_2494.jpg?fit=4032%2C3024&amp;ssl=1"
+                             data-orig-size="4032,3024" data-comments-opened="1"
+                             data-image-meta="{&quot;aperture&quot;:&quot;2.2&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;iPhone SE&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;1520176912&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;4.15&quot;,&quot;iso&quot;:&quot;25&quot;,&quot;shutter_speed&quot;:&quot;0.0045248868778281&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;1&quot;}"
+                             data-image-title="IMG_2494" data-image-description=""
+                             data-medium-file="https://i1.wp.com/pozlife.net/wp-content/uploads/2018/03/IMG_2494.jpg?fit=300%2C225&amp;ssl=1"
+                             data-large-file="https://i1.wp.com/pozlife.net/wp-content/uploads/2018/03/IMG_2494.jpg?fit=697%2C523&amp;ssl=1"/>
+                      </a>
+
+                      <div class="entry-content">
+
+                        <p>とっても晴れた日。お昼ご飯は何にしよう、家に材料も特になし。食べに行こう！となり近くの気になっていたカフェへランチをしに行きました。 手に持っているものは何だろう
+                          パンケーキを食べていると外を歩いている人、カフェに入って [&hellip;]</p>
+
+
+                        <div class="read-more">
+                          <a href="https://pozlife.net/life/polish-festival" title="とある日曜日、広場でのイベントに遭遇">もっと見る</a>
+                        </div>
+
+                        <div class="entry-footer">
+                          <span class="comments-link"><a href="https://pozlife.net/life/polish-festival#respond">No comments yet</a></span>
+                        </div><!-- .entry-footer -->
+                      </div><!-- .entry-content -->
+                    </div>
+                  </div>
+                </article><!-- #post-## -->
+
+
+                <article id="post-382"
+                         class="post-382 post type-post status-publish format-standard has-post-thumbnail hentry category-life tag-78 tag-77 tag-79 tag-24 tag-17 tag-76">
+                  <div class="blog-item-wrap">
+                    <div class="post-inner-content">
+                      <header class="entry-header page-header">
+                        <ul class="single-category">
+                          <li class="cat-item cat-item-4"><a href="https://pozlife.net/category/life">生活</a>
+                          </li>
+                        </ul>
+                        <h2 class="entry-title"><a href="https://pozlife.net/life/gardening-flower-event"
+                                                   rel="bookmark">ガーデニング・フラワーイベント〜 3日間のSpecial day</a></h2>
+
+                        <div class="entry-meta">
+                          <span class="posted-on">投稿日 <a href="https://pozlife.net/life/gardening-flower-event"
+                                                         rel="bookmark"><time class="entry-date published"
+                                                                              datetime="2018-03-16T09:00:13+00:00">2018年3月16日</time><time
+                              class="updated" datetime="2018-05-31T09:45:57+00:00">2018年5月31日</time></a></span>by <span
+                            class="author vcard"><a class="url fn n"
+                                                    href="https://pozlife.net/author/amy">amy</a></span>
+
+                        </div><!-- .entry-meta -->
+                      </header><!-- .entry-header -->
+
+                      <a href="https://pozlife.net/life/gardening-flower-event"
+                         title="ガーデニング・フラワーイベント〜 3日間のSpecial day">
+                        <img width="330" height="220"
+                             src="https://i0.wp.com/pozlife.net/wp-content/uploads/2018/03/IMG_2406.jpg?resize=330%2C220&amp;ssl=1"
+                             class="single-featured wp-post-image" alt=""
+                             srcset="https://i0.wp.com/pozlife.net/wp-content/uploads/2018/03/IMG_2406.jpg?resize=330%2C220&amp;ssl=1 330w, https://i0.wp.com/pozlife.net/wp-content/uploads/2018/03/IMG_2406.jpg?zoom=2&amp;resize=330%2C220&amp;ssl=1 660w, https://i0.wp.com/pozlife.net/wp-content/uploads/2018/03/IMG_2406.jpg?zoom=3&amp;resize=330%2C220&amp;ssl=1 990w"
+                             sizes="(max-width: 330px) 100vw, 330px" data-attachment-id="426"
+                             data-permalink="https://pozlife.net/life/gardening-flower-event/attachment/img_2406"
+                             data-orig-file="https://i0.wp.com/pozlife.net/wp-content/uploads/2018/03/IMG_2406.jpg?fit=4032%2C3024&amp;ssl=1"
+                             data-orig-size="4032,3024" data-comments-opened="1"
+                             data-image-meta="{&quot;aperture&quot;:&quot;2.2&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;iPhone SE&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;1519485369&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;4.15&quot;,&quot;iso&quot;:&quot;100&quot;,&quot;shutter_speed&quot;:&quot;0.03030303030303&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;1&quot;}"
+                             data-image-title="IMG_2406" data-image-description=""
+                             data-medium-file="https://i0.wp.com/pozlife.net/wp-content/uploads/2018/03/IMG_2406.jpg?fit=300%2C225&amp;ssl=1"
+                             data-large-file="https://i0.wp.com/pozlife.net/wp-content/uploads/2018/03/IMG_2406.jpg?fit=697%2C523&amp;ssl=1"/>
+                      </a>
+
+                      <div class="entry-content">
+
+                        <p>
+                          私の趣味は、いけばな・フラワーアレンジメントを作ったりすることで日本にいる時はいつか仕事にしたくて夢中になって沢山の作品を作っていました。だけどポーランドに来てからはまだ何も出来ていなくて、、
+                          イベント探し 何かお花に関 [&hellip;]</p>
+
+
+                        <div class="read-more">
+                          <a href="https://pozlife.net/life/gardening-flower-event"
+                             title="ガーデニング・フラワーイベント〜 3日間のSpecial day">もっと見る</a>
+                        </div>
+
+                        <div class="entry-footer">
+                          <span class="comments-link"><a href="https://pozlife.net/life/gardening-flower-event#respond">No comments yet</a></span>
+                        </div><!-- .entry-footer -->
+                      </div><!-- .entry-content -->
+                    </div>
+                  </div>
+                </article><!-- #post-## -->
+
+
+                <article id="post-406"
+                         class="post-406 post type-post status-publish format-standard has-post-thumbnail hentry category-life tag-74 tag-73 tag-24 tag-17 tag-75 tag-72">
+                  <div class="blog-item-wrap">
+                    <div class="post-inner-content">
+                      <header class="entry-header page-header">
+                        <ul class="single-category">
+                          <li class="cat-item cat-item-4"><a href="https://pozlife.net/category/life">生活</a>
+                          </li>
+                        </ul>
+                        <h2 class="entry-title"><a href="https://pozlife.net/life/international-women-days"
+                                                   rel="bookmark">3月8日は女性の日！</a></h2>
+
+                        <div class="entry-meta">
+                          <span class="posted-on">投稿日 <a href="https://pozlife.net/life/international-women-days"
+                                                         rel="bookmark"><time class="entry-date published"
+                                                                              datetime="2018-03-09T09:57:58+00:00">2018年3月9日</time></a></span>by
+                          <span class="author vcard"><a class="url fn n"
+                                                        href="https://pozlife.net/author/amy">amy</a></span>
+
+                        </div><!-- .entry-meta -->
+                      </header><!-- .entry-header -->
+
+                      <a href="https://pozlife.net/life/international-women-days" title="3月8日は女性の日！">
+                        <img width="330" height="220"
+                             src="https://i1.wp.com/pozlife.net/wp-content/uploads/2018/03/IMG_2523.jpg?resize=330%2C220&amp;ssl=1"
+                             class="single-featured wp-post-image" alt=""
+                             srcset="https://i1.wp.com/pozlife.net/wp-content/uploads/2018/03/IMG_2523.jpg?resize=330%2C220&amp;ssl=1 330w, https://i1.wp.com/pozlife.net/wp-content/uploads/2018/03/IMG_2523.jpg?zoom=2&amp;resize=330%2C220&amp;ssl=1 660w, https://i1.wp.com/pozlife.net/wp-content/uploads/2018/03/IMG_2523.jpg?zoom=3&amp;resize=330%2C220&amp;ssl=1 990w"
+                             sizes="(max-width: 330px) 100vw, 330px" data-attachment-id="423"
+                             data-permalink="https://pozlife.net/life/international-women-days/attachment/img_2523"
+                             data-orig-file="https://i1.wp.com/pozlife.net/wp-content/uploads/2018/03/IMG_2523.jpg?fit=3024%2C4032&amp;ssl=1"
+                             data-orig-size="3024,4032" data-comments-opened="1"
+                             data-image-meta="{&quot;aperture&quot;:&quot;2.2&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;iPhone SE&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;1520532941&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;4.15&quot;,&quot;iso&quot;:&quot;500&quot;,&quot;shutter_speed&quot;:&quot;0.058823529411765&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;1&quot;}"
+                             data-image-title="IMG_2523" data-image-description=""
+                             data-medium-file="https://i1.wp.com/pozlife.net/wp-content/uploads/2018/03/IMG_2523.jpg?fit=225%2C300&amp;ssl=1"
+                             data-large-file="https://i1.wp.com/pozlife.net/wp-content/uploads/2018/03/IMG_2523.jpg?fit=697%2C929&amp;ssl=1"/>
+                      </a>
+
+                      <div class="entry-content">
+
+                        <p>今日は女性の日！
+                          毎年、3月8日は国際女性デーとして世界各国で行事が催されています。ここポーランドでも街を歩いていると、女性の手にはチューリップやバラを持っている人ばかり。旧市街広場でもヤギの着ぐるみが登場して、チューリ
+                          [&hellip;]</p>
+
+
+                        <div class="read-more">
+                          <a href="https://pozlife.net/life/international-women-days" title="3月8日は女性の日！">もっと見る</a>
+                        </div>
+
+                        <div class="entry-footer">
+                          <span class="comments-link"><a
+                              href="https://pozlife.net/life/international-women-days#respond">No comments yet</a></span>
+                        </div><!-- .entry-footer -->
+                      </div><!-- .entry-content -->
+                    </div>
+                  </div>
+                </article><!-- #post-## -->
+
+
+                <article id="post-152"
+                         class="post-152 post type-post status-publish format-standard has-post-thumbnail hentry category-football tag-inea-stadium tag-lech-poznan tag-70 tag-65 tag-67 tag-68 tag-24 tag-17 tag-71 tag-63 tag-66">
+                  <div class="blog-item-wrap">
+                    <div class="post-inner-content">
+                      <header class="entry-header page-header">
+                        <ul class="single-category">
+                          <li class="cat-item cat-item-7"><a href="https://pozlife.net/category/football">サッカー</a>
+                          </li>
+                        </ul>
+                        <h2 class="entry-title"><a href="https://pozlife.net/football/lech-poznan" rel="bookmark">熱狂的な地元レフ・ポズナンのサッカー初観戦</a>
+                        </h2>
+
+                        <div class="entry-meta">
+                          <span class="posted-on">投稿日 <a href="https://pozlife.net/football/lech-poznan" rel="bookmark"><time
+                              class="entry-date published" datetime="2018-02-25T00:00:35+00:00">2018年2月25日</time><time
+                              class="updated" datetime="2018-02-25T00:04:08+00:00">2018年2月25日</time></a></span>by <span
+                            class="author vcard"><a class="url fn n"
+                                                    href="https://pozlife.net/author/tomosm">tomo</a></span>
+
+                        </div><!-- .entry-meta -->
+                      </header><!-- .entry-header -->
+
+                      <a href="https://pozlife.net/football/lech-poznan" title="熱狂的な地元レフ・ポズナンのサッカー初観戦">
+                        <img width="330" height="220"
+                             src="https://i1.wp.com/pozlife.net/wp-content/uploads/2018/02/S__30498821.jpg?resize=330%2C220&amp;ssl=1"
+                             class="single-featured wp-post-image" alt=""
+                             srcset="https://i1.wp.com/pozlife.net/wp-content/uploads/2018/02/S__30498821.jpg?resize=330%2C220&amp;ssl=1 330w, https://i1.wp.com/pozlife.net/wp-content/uploads/2018/02/S__30498821.jpg?zoom=2&amp;resize=330%2C220&amp;ssl=1 660w, https://i1.wp.com/pozlife.net/wp-content/uploads/2018/02/S__30498821.jpg?zoom=3&amp;resize=330%2C220&amp;ssl=1 990w"
+                             sizes="(max-width: 330px) 100vw, 330px" data-attachment-id="387"
+                             data-permalink="https://pozlife.net/football/lech-poznan/attachment/s__30498821"
+                             data-orig-file="https://i1.wp.com/pozlife.net/wp-content/uploads/2018/02/S__30498821.jpg?fit=1478%2C1108&amp;ssl=1"
+                             data-orig-size="1478,1108" data-comments-opened="1"
+                             data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;1&quot;}"
+                             data-image-title="Lech Poznan vs Pogon Szczecin on 18th Feb 2018" data-image-description=""
+                             data-medium-file="https://i1.wp.com/pozlife.net/wp-content/uploads/2018/02/S__30498821.jpg?fit=300%2C225&amp;ssl=1"
+                             data-large-file="https://i1.wp.com/pozlife.net/wp-content/uploads/2018/02/S__30498821.jpg?fit=697%2C523&amp;ssl=1"/>
+                      </a>
+
+                      <div class="entry-content">
+
+                        <p>2月18日に初めて地元のポズナンのチーム、レフ・ポズナン(Lech
+                          Poznań)のサッカー観戦に行ってきました！レフ・ポズナンは2018年2月時点で国内タイトル、リーグ7回、カップ5回、ポーランドスーパーカップ6回優勝 [&hellip;]</p>
+
+
+                        <div class="read-more">
+                          <a href="https://pozlife.net/football/lech-poznan" title="熱狂的な地元レフ・ポズナンのサッカー初観戦">もっと見る</a>
+                        </div>
+
+                        <div class="entry-footer">
+                          <span class="comments-link"><a href="https://pozlife.net/football/lech-poznan#respond">No comments yet</a></span>
+                        </div><!-- .entry-footer -->
+                      </div><!-- .entry-content -->
+                    </div>
+                  </div>
+                </article><!-- #post-## -->
+
+
+                <article id="post-337"
+                         class="post-337 post type-post status-publish format-standard has-post-thumbnail hentry category-gourmet tag-chocolate tag-karmello tag-57 tag-60 tag-24 tag-17 tag-59">
+                  <div class="blog-item-wrap">
+                    <div class="post-inner-content">
+                      <header class="entry-header page-header">
+                        <ul class="single-category">
+                          <li class="cat-item cat-item-6"><a href="https://pozlife.net/category/gourmet">グルメ</a>
+                          </li>
+                        </ul>
+                        <h2 class="entry-title"><a href="https://pozlife.net/gourmet/chocolate-shop" rel="bookmark">バレンタインデーにお勧めのチョコレート専門店</a>
+                        </h2>
+
+                        <div class="entry-meta">
+                          <span class="posted-on">投稿日 <a href="https://pozlife.net/gourmet/chocolate-shop"
+                                                         rel="bookmark"><time class="entry-date published"
+                                                                              datetime="2018-02-20T00:16:29+00:00">2018年2月20日</time><time
+                              class="updated" datetime="2018-02-20T00:29:35+00:00">2018年2月20日</time></a></span>by <span
+                            class="author vcard"><a class="url fn n"
+                                                    href="https://pozlife.net/author/amy">amy</a></span>
+
+                        </div><!-- .entry-meta -->
+                      </header><!-- .entry-header -->
+
+                      <a href="https://pozlife.net/gourmet/chocolate-shop" title="バレンタインデーにお勧めのチョコレート専門店">
+                        <img width="330" height="220"
+                             src="https://i0.wp.com/pozlife.net/wp-content/uploads/2018/02/IMG_1711.jpg?resize=330%2C220&amp;ssl=1"
+                             class="single-featured wp-post-image" alt=""
+                             srcset="https://i0.wp.com/pozlife.net/wp-content/uploads/2018/02/IMG_1711.jpg?resize=330%2C220&amp;ssl=1 330w, https://i0.wp.com/pozlife.net/wp-content/uploads/2018/02/IMG_1711.jpg?zoom=2&amp;resize=330%2C220&amp;ssl=1 660w, https://i0.wp.com/pozlife.net/wp-content/uploads/2018/02/IMG_1711.jpg?zoom=3&amp;resize=330%2C220&amp;ssl=1 990w"
+                             sizes="(max-width: 330px) 100vw, 330px" data-attachment-id="342"
+                             data-permalink="https://pozlife.net/img_1711"
+                             data-orig-file="https://i0.wp.com/pozlife.net/wp-content/uploads/2018/02/IMG_1711.jpg?fit=3677%2C2759&amp;ssl=1"
+                             data-orig-size="3677,2759" data-comments-opened="1"
+                             data-image-meta="{&quot;aperture&quot;:&quot;2.2&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;iPhone SE&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;1514216842&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;4.15&quot;,&quot;iso&quot;:&quot;32&quot;,&quot;shutter_speed&quot;:&quot;0.03030303030303&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}"
+                             data-image-title="IMG_1711" data-image-description=""
+                             data-medium-file="https://i0.wp.com/pozlife.net/wp-content/uploads/2018/02/IMG_1711.jpg?fit=300%2C225&amp;ssl=1"
+                             data-large-file="https://i0.wp.com/pozlife.net/wp-content/uploads/2018/02/IMG_1711.jpg?fit=697%2C523&amp;ssl=1"/>
+                      </a>
+
+                      <div class="entry-content">
+
+                        <p>おいしいチョコレートのお店 &nbsp; Pijalnia Czekolady E.Wedel
+                          ここはポーランドで有名なチョコレート屋さん。スーパーにあるチョコもWedelのものが沢山あります。だけど今は日本のロッテに買 [&hellip;]</p>
+
+
+                        <div class="read-more">
+                          <a href="https://pozlife.net/gourmet/chocolate-shop" title="バレンタインデーにお勧めのチョコレート専門店">もっと見る</a>
+                        </div>
+
+                        <div class="entry-footer">
+                          <span class="comments-link"><a href="https://pozlife.net/gourmet/chocolate-shop#respond">No comments yet</a></span>
+                        </div><!-- .entry-footer -->
+                      </div><!-- .entry-content -->
+                    </div>
+                  </div>
+                </article><!-- #post-## -->
+
+
+                <article id="post-299"
+                         class="post-299 post type-post status-publish format-standard has-post-thumbnail hentry category-life tag-54 tag-53 tag-52 tag-17 tag-55 tag-56 tag-51">
+                  <div class="blog-item-wrap">
+                    <div class="post-inner-content">
+                      <header class="entry-header page-header">
+                        <ul class="single-category">
+                          <li class="cat-item cat-item-4"><a href="https://pozlife.net/category/life">生活</a>
+                          </li>
+                        </ul>
+                        <h2 class="entry-title"><a href="https://pozlife.net/life/wroclaw-day-trip" rel="bookmark">ブロツワフ(wroclaw)へ日帰り旅行</a>
+                        </h2>
+
+                        <div class="entry-meta">
+                          <span class="posted-on">投稿日 <a href="https://pozlife.net/life/wroclaw-day-trip"
+                                                         rel="bookmark"><time class="entry-date published"
+                                                                              datetime="2018-02-12T00:00:46+00:00">2018年2月12日</time><time
+                              class="updated" datetime="2018-05-31T09:47:37+00:00">2018年5月31日</time></a></span>by <span
+                            class="author vcard"><a class="url fn n"
+                                                    href="https://pozlife.net/author/amy">amy</a></span>
+
+                        </div><!-- .entry-meta -->
+                      </header><!-- .entry-header -->
+
+                      <a href="https://pozlife.net/life/wroclaw-day-trip" title="ブロツワフ(wroclaw)へ日帰り旅行">
+                        <img width="330" height="220"
+                             src="https://i0.wp.com/pozlife.net/wp-content/uploads/2018/02/IMG_2185.jpg?resize=330%2C220&amp;ssl=1"
+                             class="single-featured wp-post-image" alt=""
+                             srcset="https://i0.wp.com/pozlife.net/wp-content/uploads/2018/02/IMG_2185.jpg?resize=330%2C220&amp;ssl=1 330w, https://i0.wp.com/pozlife.net/wp-content/uploads/2018/02/IMG_2185.jpg?zoom=2&amp;resize=330%2C220&amp;ssl=1 660w, https://i0.wp.com/pozlife.net/wp-content/uploads/2018/02/IMG_2185.jpg?zoom=3&amp;resize=330%2C220&amp;ssl=1 990w"
+                             sizes="(max-width: 330px) 100vw, 330px" data-attachment-id="322"
+                             data-permalink="https://pozlife.net/img_2185"
+                             data-orig-file="https://i0.wp.com/pozlife.net/wp-content/uploads/2018/02/IMG_2185.jpg?fit=4032%2C3024&amp;ssl=1"
+                             data-orig-size="4032,3024" data-comments-opened="1"
+                             data-image-meta="{&quot;aperture&quot;:&quot;2.2&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;iPhone SE&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;1517067157&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;4.15&quot;,&quot;iso&quot;:&quot;25&quot;,&quot;shutter_speed&quot;:&quot;0.0041666666666667&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}"
+                             data-image-title="IMG_2185" data-image-description=""
+                             data-medium-file="https://i0.wp.com/pozlife.net/wp-content/uploads/2018/02/IMG_2185.jpg?fit=300%2C225&amp;ssl=1"
+                             data-large-file="https://i0.wp.com/pozlife.net/wp-content/uploads/2018/02/IMG_2185.jpg?fit=697%2C523&amp;ssl=1"/>
+                      </a>
+
+                      <div class="entry-content">
+
+                        <p>ポーランド人のお友達に誘われて日帰りでブロツワフに行ってきました。ポズナンから電車で約2時間。寝ていたらあっという間に着きました。 素敵なブロツワフ駅〜旧市街地周辺
+                          駅から旧市街まで散歩がてら歩いて行こうとなり、途中にあ [&hellip;]</p>
+
+
+                        <div class="read-more">
+                          <a href="https://pozlife.net/life/wroclaw-day-trip" title="ブロツワフ(wroclaw)へ日帰り旅行">もっと見る</a>
+                        </div>
+
+                        <div class="entry-footer">
+                          <span class="comments-link"><a href="https://pozlife.net/life/wroclaw-day-trip#respond">No comments yet</a></span>
+                        </div><!-- .entry-footer -->
+                      </div><!-- .entry-content -->
+                    </div>
+                  </div>
+                </article><!-- #post-## -->
+
+
+                <article id="post-235"
+                         class="post-235 post type-post status-publish format-standard has-post-thumbnail hentry category-life tag-ziaja tag-44 tag-47 tag-45 tag-24 tag-17 tag-48 tag-43">
+                  <div class="blog-item-wrap">
+                    <div class="post-inner-content">
+                      <header class="entry-header page-header">
+                        <ul class="single-category">
+                          <li class="cat-item cat-item-4"><a href="https://pozlife.net/category/life">生活</a>
+                          </li>
+                        </ul>
+                        <h2 class="entry-title"><a href="https://pozlife.net/life/ziaja" rel="bookmark">プチプラで自然派化粧品なZiaja（ジャヤ）</a>
+                        </h2>
+
+                        <div class="entry-meta">
+                          <span class="posted-on">投稿日 <a href="https://pozlife.net/life/ziaja" rel="bookmark"><time
+                              class="entry-date published" datetime="2018-01-30T00:00:20+00:00">2018年1月30日</time><time
+                              class="updated" datetime="2018-05-31T09:50:06+00:00">2018年5月31日</time></a></span>by <span
+                            class="author vcard"><a class="url fn n"
+                                                    href="https://pozlife.net/author/amy">amy</a></span>
+
+                        </div><!-- .entry-meta -->
+                      </header><!-- .entry-header -->
+
+                      <a href="https://pozlife.net/life/ziaja" title="プチプラで自然派化粧品なZiaja（ジャヤ）">
+                        <img width="330" height="220"
+                             src="https://i1.wp.com/pozlife.net/wp-content/uploads/2018/01/IMG_1955.jpg?resize=330%2C220&amp;ssl=1"
+                             class="single-featured wp-post-image" alt=""
+                             srcset="https://i1.wp.com/pozlife.net/wp-content/uploads/2018/01/IMG_1955.jpg?resize=330%2C220&amp;ssl=1 330w, https://i1.wp.com/pozlife.net/wp-content/uploads/2018/01/IMG_1955.jpg?zoom=2&amp;resize=330%2C220&amp;ssl=1 660w, https://i1.wp.com/pozlife.net/wp-content/uploads/2018/01/IMG_1955.jpg?zoom=3&amp;resize=330%2C220&amp;ssl=1 990w"
+                             sizes="(max-width: 330px) 100vw, 330px" data-attachment-id="268"
+                             data-permalink="https://pozlife.net/life/ziaja/attachment/img_1955"
+                             data-orig-file="https://i1.wp.com/pozlife.net/wp-content/uploads/2018/01/IMG_1955.jpg?fit=1478%2C1108&amp;ssl=1"
+                             data-orig-size="1478,1108" data-comments-opened="1"
+                             data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;1&quot;}"
+                             data-image-title="IMG_1955" data-image-description=""
+                             data-medium-file="https://i1.wp.com/pozlife.net/wp-content/uploads/2018/01/IMG_1955.jpg?fit=300%2C225&amp;ssl=1"
+                             data-large-file="https://i1.wp.com/pozlife.net/wp-content/uploads/2018/01/IMG_1955.jpg?fit=697%2C523&amp;ssl=1"/>
+                      </a>
+
+                      <div class="entry-content">
+
+                        <p>
+                          ポーランドは年中乾燥していて冬の時期は暖房機器によりさらに乾燥が増します。なので皮膚がカッサカサ。粉吹いてます、、でボディークリームが必要だったのでポーランドの老舗化粧品メーカーZiaja（ジャヤ）のお店に行って来ました
+                          [&hellip;]</p>
+
+
+                        <div class="read-more">
+                          <a href="https://pozlife.net/life/ziaja" title="プチプラで自然派化粧品なZiaja（ジャヤ）">もっと見る</a>
+                        </div>
+
+                        <div class="entry-footer">
+                          <span class="comments-link"><a
+                              href="https://pozlife.net/life/ziaja#respond">No comments yet</a></span>
+                        </div><!-- .entry-footer -->
+                      </div><!-- .entry-content -->
+                    </div>
+                  </div>
+                </article><!-- #post-## -->
+
+
+                <article id="post-214"
+                         class="post-214 post type-post status-publish format-standard has-post-thumbnail hentry category-life tag-37 tag-24 tag-17 tag-49 tag-41">
+                  <div class="blog-item-wrap">
+                    <div class="post-inner-content">
+                      <header class="entry-header page-header">
+                        <ul class="single-category">
+                          <li class="cat-item cat-item-4"><a href="https://pozlife.net/category/life">生活</a>
+                          </li>
+                        </ul>
+                        <h2 class="entry-title"><a href="https://pozlife.net/life/supermarket" rel="bookmark">生活に必要不可欠！なスーパーマーケット</a>
+                        </h2>
+
+                        <div class="entry-meta">
+                          <span class="posted-on">投稿日 <a href="https://pozlife.net/life/supermarket" rel="bookmark"><time
+                              class="entry-date published" datetime="2018-01-22T12:00:22+00:00">2018年1月22日</time><time
+                              class="updated" datetime="2018-02-19T21:52:30+00:00">2018年2月19日</time></a></span>by <span
+                            class="author vcard"><a class="url fn n"
+                                                    href="https://pozlife.net/author/amy">amy</a></span>
+
+                        </div><!-- .entry-meta -->
+                      </header><!-- .entry-header -->
+
+                      <a href="https://pozlife.net/life/supermarket" title="生活に必要不可欠！なスーパーマーケット">
+                        <img width="330" height="220"
+                             src="https://i0.wp.com/pozlife.net/wp-content/uploads/2018/01/IMG_1961.jpg?resize=330%2C220&amp;ssl=1"
+                             class="single-featured wp-post-image" alt=""
+                             srcset="https://i0.wp.com/pozlife.net/wp-content/uploads/2018/01/IMG_1961.jpg?resize=330%2C220&amp;ssl=1 330w, https://i0.wp.com/pozlife.net/wp-content/uploads/2018/01/IMG_1961.jpg?zoom=2&amp;resize=330%2C220&amp;ssl=1 660w, https://i0.wp.com/pozlife.net/wp-content/uploads/2018/01/IMG_1961.jpg?zoom=3&amp;resize=330%2C220&amp;ssl=1 990w"
+                             sizes="(max-width: 330px) 100vw, 330px" data-attachment-id="274"
+                             data-permalink="https://pozlife.net/life/supermarket/attachment/img_1961"
+                             data-orig-file="https://i0.wp.com/pozlife.net/wp-content/uploads/2018/01/IMG_1961.jpg?fit=1430%2C1276&amp;ssl=1"
+                             data-orig-size="1430,1276" data-comments-opened="1"
+                             data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;1&quot;}"
+                             data-image-title="IMG_1961" data-image-description=""
+                             data-medium-file="https://i0.wp.com/pozlife.net/wp-content/uploads/2018/01/IMG_1961.jpg?fit=300%2C268&amp;ssl=1"
+                             data-large-file="https://i0.wp.com/pozlife.net/wp-content/uploads/2018/01/IMG_1961.jpg?fit=697%2C622&amp;ssl=1"/>
+                      </a>
+
+                      <div class="entry-content">
+
+                        <p>日常生活でかかせないのがスーパーマーケット。 自宅の近くにあるのはポーランドで有名なてんとう虫マーク Biedronka (ビエドランカ)
+                          野菜果物コーナーからスタート。これは日本のスーパーと一緒の出だしですね。ポーラン [&hellip;]</p>
+
+
+                        <div class="read-more">
+                          <a href="https://pozlife.net/life/supermarket" title="生活に必要不可欠！なスーパーマーケット">もっと見る</a>
+                        </div>
+
+                        <div class="entry-footer">
+                          <span class="comments-link"><a href="https://pozlife.net/life/supermarket#respond">No comments yet</a></span>
+                        </div><!-- .entry-footer -->
+                      </div><!-- .entry-content -->
+                    </div>
+                  </div>
+                </article><!-- #post-## -->
+
+
+                <article id="post-209"
+                         class="post-209 post type-post status-publish format-standard has-post-thumbnail hentry category-gourmet tag-35 tag-34 tag-24 tag-33 tag-17 tag-36">
+                  <div class="blog-item-wrap">
+                    <div class="post-inner-content">
+                      <header class="entry-header page-header">
+                        <ul class="single-category">
+                          <li class="cat-item cat-item-6"><a href="https://pozlife.net/category/gourmet">グルメ</a>
+                          </li>
+                        </ul>
+                        <h2 class="entry-title"><a href="https://pozlife.net/gourmet/paczki"
+                                                   rel="bookmark">ドハマり中なポンチュキ</a></h2>
+
+                        <div class="entry-meta">
+                          <span class="posted-on">投稿日 <a href="https://pozlife.net/gourmet/paczki" rel="bookmark"><time
+                              class="entry-date published" datetime="2018-01-19T12:00:57+00:00">2018年1月19日</time><time
+                              class="updated" datetime="2018-05-31T09:51:38+00:00">2018年5月31日</time></a></span>by <span
+                            class="author vcard"><a class="url fn n"
+                                                    href="https://pozlife.net/author/amy">amy</a></span>
+
+                        </div><!-- .entry-meta -->
+                      </header><!-- .entry-header -->
+
+                      <a href="https://pozlife.net/gourmet/paczki" title="ドハマり中なポンチュキ">
+                        <img width="330" height="220"
+                             src="https://i0.wp.com/pozlife.net/wp-content/uploads/2018/01/IMG_1887.jpg?resize=330%2C220&amp;ssl=1"
+                             class="single-featured wp-post-image" alt=""
+                             srcset="https://i0.wp.com/pozlife.net/wp-content/uploads/2018/01/IMG_1887.jpg?resize=330%2C220&amp;ssl=1 330w, https://i0.wp.com/pozlife.net/wp-content/uploads/2018/01/IMG_1887.jpg?zoom=2&amp;resize=330%2C220&amp;ssl=1 660w, https://i0.wp.com/pozlife.net/wp-content/uploads/2018/01/IMG_1887.jpg?zoom=3&amp;resize=330%2C220&amp;ssl=1 990w"
+                             sizes="(max-width: 330px) 100vw, 330px" data-attachment-id="255"
+                             data-permalink="https://pozlife.net/img_1887"
+                             data-orig-file="https://i0.wp.com/pozlife.net/wp-content/uploads/2018/01/IMG_1887.jpg?fit=4032%2C3024&amp;ssl=1"
+                             data-orig-size="4032,3024" data-comments-opened="1"
+                             data-image-meta="{&quot;aperture&quot;:&quot;2.2&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;iPhone SE&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;1515264853&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;4.15&quot;,&quot;iso&quot;:&quot;160&quot;,&quot;shutter_speed&quot;:&quot;0.03030303030303&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}"
+                             data-image-title="IMG_1887" data-image-description=""
+                             data-medium-file="https://i0.wp.com/pozlife.net/wp-content/uploads/2018/01/IMG_1887.jpg?fit=300%2C225&amp;ssl=1"
+                             data-large-file="https://i0.wp.com/pozlife.net/wp-content/uploads/2018/01/IMG_1887.jpg?fit=697%2C523&amp;ssl=1"/>
+                      </a>
+
+                      <div class="entry-content">
+
+                        <p>
+                          ポンチキは揚げドーナツの中にジャムやクリームが入ったポーランドで有名なスイーツです。カフェ、スーパー、コンビニどこにでも並んでいて見るたびにそそられてしまいます。私は甘いものが得意ではなくしょっぱいもの好きなので、スイー
+                          [&hellip;]</p>
+
+
+                        <div class="read-more">
+                          <a href="https://pozlife.net/gourmet/paczki" title="ドハマり中なポンチュキ">もっと見る</a>
+                        </div>
+
+                        <div class="entry-footer">
+                          <span class="comments-link"><a href="https://pozlife.net/gourmet/paczki#respond">No comments yet</a></span>
+                        </div><!-- .entry-footer -->
+                      </div><!-- .entry-content -->
+                    </div>
+                  </div>
+                </article><!-- #post-## -->
+
+
+                <article id="post-218"
+                         class="post-218 post type-post status-publish format-standard has-post-thumbnail hentry category-life tag-wosp2018 tag-38 tag-39 tag-24 tag-17 tag-40">
+                  <div class="blog-item-wrap">
+                    <div class="post-inner-content">
+                      <header class="entry-header page-header">
+                        <ul class="single-category">
+                          <li class="cat-item cat-item-4"><a href="https://pozlife.net/category/life">生活</a>
+                          </li>
+                        </ul>
+                        <h2 class="entry-title"><a href="https://pozlife.net/life/wosp"
+                                                   rel="bookmark">年に１度のチャリティーイベント</a></h2>
+
+                        <div class="entry-meta">
+                          <span class="posted-on">投稿日 <a href="https://pozlife.net/life/wosp" rel="bookmark"><time
+                              class="entry-date published" datetime="2018-01-15T12:00:27+00:00">2018年1月15日</time><time
+                              class="updated" datetime="2018-02-19T21:53:45+00:00">2018年2月19日</time></a></span>by <span
+                            class="author vcard"><a class="url fn n"
+                                                    href="https://pozlife.net/author/amy">amy</a></span>
+
+                        </div><!-- .entry-meta -->
+                      </header><!-- .entry-header -->
+
+                      <a href="https://pozlife.net/life/wosp" title="年に１度のチャリティーイベント">
+                        <img width="330" height="220"
+                             src="https://i2.wp.com/pozlife.net/wp-content/uploads/2018/01/IMG_1934.jpg?resize=330%2C220&amp;ssl=1"
+                             class="single-featured wp-post-image" alt=""
+                             srcset="https://i2.wp.com/pozlife.net/wp-content/uploads/2018/01/IMG_1934.jpg?resize=330%2C220&amp;ssl=1 330w, https://i2.wp.com/pozlife.net/wp-content/uploads/2018/01/IMG_1934.jpg?zoom=2&amp;resize=330%2C220&amp;ssl=1 660w, https://i2.wp.com/pozlife.net/wp-content/uploads/2018/01/IMG_1934.jpg?zoom=3&amp;resize=330%2C220&amp;ssl=1 990w"
+                             sizes="(max-width: 330px) 100vw, 330px" data-attachment-id="219"
+                             data-permalink="https://pozlife.net/life/wosp/attachment/img_1934"
+                             data-orig-file="https://i2.wp.com/pozlife.net/wp-content/uploads/2018/01/IMG_1934.jpg?fit=3844%2C2882&amp;ssl=1"
+                             data-orig-size="3844,2882" data-comments-opened="1"
+                             data-image-meta="{&quot;aperture&quot;:&quot;2.2&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;iPhone SE&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;1515950054&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;4.15&quot;,&quot;iso&quot;:&quot;200&quot;,&quot;shutter_speed&quot;:&quot;0.05&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}"
+                             data-image-title="IMG_1934" data-image-description=""
+                             data-medium-file="https://i2.wp.com/pozlife.net/wp-content/uploads/2018/01/IMG_1934.jpg?fit=300%2C225&amp;ssl=1"
+                             data-large-file="https://i2.wp.com/pozlife.net/wp-content/uploads/2018/01/IMG_1934.jpg?fit=697%2C523&amp;ssl=1"/>
+                      </a>
+
+                      <div class="entry-content">
+
+                        <p>
+                          自宅の外に出たらすぐに出会った老人夫婦。仲良しそうに手を繋いで歩いていていつまでたってもあんな風にいれるなんて素敵〜とふたりの胸にはハートのシールが。なんだろう、何かのイベントかな？と歩いていると通りすがる人ほとんどの人
+                          [&hellip;]</p>
+
+
+                        <div class="read-more">
+                          <a href="https://pozlife.net/life/wosp" title="年に１度のチャリティーイベント">もっと見る</a>
+                        </div>
+
+                        <div class="entry-footer">
+                          <span class="comments-link"><a
+                              href="https://pozlife.net/life/wosp#respond">No comments yet</a></span>
+                        </div><!-- .entry-footer -->
+                      </div><!-- .entry-content -->
+                    </div>
+                  </div>
+                </article><!-- #post-## -->
+
+
+                <article id="post-190"
+                         class="post-190 post type-post status-publish format-standard has-post-thumbnail hentry category-gourmet tag-32 tag-24 tag-17 tag-31 tag-30">
+                  <div class="blog-item-wrap">
+                    <div class="post-inner-content">
+                      <header class="entry-header page-header">
+                        <ul class="single-category">
+                          <li class="cat-item cat-item-6"><a href="https://pozlife.net/category/gourmet">グルメ</a>
+                          </li>
+                        </ul>
+                        <h2 class="entry-title"><a href="https://pozlife.net/gourmet/tea-specialty-shop" rel="bookmark">ティー専門店「FIVE
+                          O’CLOCK」の茶葉で癒される</a></h2>
+
+                        <div class="entry-meta">
+                          <span class="posted-on">投稿日 <a href="https://pozlife.net/gourmet/tea-specialty-shop"
+                                                         rel="bookmark"><time class="entry-date published"
+                                                                              datetime="2018-01-12T12:00:58+00:00">2018年1月12日</time><time
+                              class="updated" datetime="2018-05-31T09:44:50+00:00">2018年5月31日</time></a></span>by <span
+                            class="author vcard"><a class="url fn n"
+                                                    href="https://pozlife.net/author/amy">amy</a></span>
+
+                        </div><!-- .entry-meta -->
+                      </header><!-- .entry-header -->
+
+                      <a href="https://pozlife.net/gourmet/tea-specialty-shop" title="ティー専門店「FIVE O’CLOCK」の茶葉で癒される">
+                        <img width="330" height="220"
+                             src="https://i0.wp.com/pozlife.net/wp-content/uploads/2018/01/26854300_1148910085245851_540226857_o2.jpg?resize=330%2C220&amp;ssl=1"
+                             class="single-featured wp-post-image" alt=""
+                             srcset="https://i0.wp.com/pozlife.net/wp-content/uploads/2018/01/26854300_1148910085245851_540226857_o2.jpg?resize=330%2C220&amp;ssl=1 330w, https://i0.wp.com/pozlife.net/wp-content/uploads/2018/01/26854300_1148910085245851_540226857_o2.jpg?zoom=2&amp;resize=330%2C220&amp;ssl=1 660w, https://i0.wp.com/pozlife.net/wp-content/uploads/2018/01/26854300_1148910085245851_540226857_o2.jpg?zoom=3&amp;resize=330%2C220&amp;ssl=1 990w"
+                             sizes="(max-width: 330px) 100vw, 330px" data-attachment-id="201"
+                             data-permalink="https://pozlife.net/26854300_1148910085245851_540226857_o2"
+                             data-orig-file="https://i0.wp.com/pozlife.net/wp-content/uploads/2018/01/26854300_1148910085245851_540226857_o2.jpg?fit=2048%2C1536&amp;ssl=1"
+                             data-orig-size="2048,1536" data-comments-opened="1"
+                             data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}"
+                             data-image-title="26854300_1148910085245851_540226857_o2" data-image-description=""
+                             data-medium-file="https://i0.wp.com/pozlife.net/wp-content/uploads/2018/01/26854300_1148910085245851_540226857_o2.jpg?fit=300%2C225&amp;ssl=1"
+                             data-large-file="https://i0.wp.com/pozlife.net/wp-content/uploads/2018/01/26854300_1148910085245851_540226857_o2.jpg?fit=697%2C523&amp;ssl=1"/>
+                      </a>
+
+                      <div class="entry-content">
+
+                        <p>FIVE O’CLOCK お店をいつ見てもお客さんが並んでいるので気になっていました。どれをどう買って良いのかわからず、うろうろ。まだ店内にはクリスマス限定の缶などが置いてあって可愛い〜
+                          人が空いた隙をみて店員さんに旦那 [&hellip;]</p>
+
+
+                        <div class="read-more">
+                          <a href="https://pozlife.net/gourmet/tea-specialty-shop" title="ティー専門店「FIVE O’CLOCK」の茶葉で癒される">もっと見る</a>
+                        </div>
+
+                        <div class="entry-footer">
+                          <span class="comments-link"><a href="https://pozlife.net/gourmet/tea-specialty-shop#respond">No comments yet</a></span>
+                        </div><!-- .entry-footer -->
+                      </div><!-- .entry-content -->
+                    </div>
+                  </div>
+                </article><!-- #post-## -->
+
+
+                <article id="post-174"
+                         class="post-174 post type-post status-publish format-standard has-post-thumbnail hentry category-life tag-28 tag-24 tag-17 tag-27 tag-29">
+                  <div class="blog-item-wrap">
+                    <div class="post-inner-content">
+                      <header class="entry-header page-header">
+                        <ul class="single-category">
+                          <li class="cat-item cat-item-4"><a href="https://pozlife.net/category/life">生活</a>
+                          </li>
+                        </ul>
+                        <h2 class="entry-title"><a href="https://pozlife.net/life/countdown2018" rel="bookmark">2018年末カウントダウン</a>
+                        </h2>
+
+                        <div class="entry-meta">
+                          <span class="posted-on">投稿日 <a href="https://pozlife.net/life/countdown2018" rel="bookmark"><time
+                              class="entry-date published" datetime="2018-01-10T12:00:23+00:00">2018年1月10日</time><time
+                              class="updated" datetime="2018-02-19T21:56:57+00:00">2018年2月19日</time></a></span>by <span
+                            class="author vcard"><a class="url fn n"
+                                                    href="https://pozlife.net/author/amy">amy</a></span>
+
+                        </div><!-- .entry-meta -->
+                      </header><!-- .entry-header -->
+
+                      <a href="https://pozlife.net/life/countdown2018" title="2018年末カウントダウン">
+                        <img width="330" height="220"
+                             src="https://i2.wp.com/pozlife.net/wp-content/uploads/2018/01/IMG_1894.jpg?resize=330%2C220&amp;ssl=1"
+                             class="single-featured wp-post-image" alt="" data-attachment-id="186"
+                             data-permalink="https://pozlife.net/life/countdown2018/attachment/img_1894"
+                             data-orig-file="https://i2.wp.com/pozlife.net/wp-content/uploads/2018/01/IMG_1894.jpg?fit=640%2C353&amp;ssl=1"
+                             data-orig-size="640,353" data-comments-opened="1"
+                             data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;1&quot;}"
+                             data-image-title="IMG_1894" data-image-description=""
+                             data-medium-file="https://i2.wp.com/pozlife.net/wp-content/uploads/2018/01/IMG_1894.jpg?fit=300%2C165&amp;ssl=1"
+                             data-large-file="https://i2.wp.com/pozlife.net/wp-content/uploads/2018/01/IMG_1894.jpg?fit=640%2C353&amp;ssl=1"/>
+                      </a>
+
+                      <div class="entry-content">
+
+                        <p>年越しそばをしたくて日本から緑のたぬきをスーツケースにしのばせてきました（笑） カウントダウンライブ
+                          リバティー広場でカウントダウンライブがあると聞いていたので23時ごろそばを食べて外に出かけました。人が多い。みんな外に [&hellip;]</p>
+
+
+                        <div class="read-more">
+                          <a href="https://pozlife.net/life/countdown2018" title="2018年末カウントダウン">もっと見る</a>
+                        </div>
+
+                        <div class="entry-footer">
+                          <span class="comments-link"><a href="https://pozlife.net/life/countdown2018#respond">No comments yet</a></span>
+                        </div><!-- .entry-footer -->
+                      </div><!-- .entry-content -->
+                    </div>
+                  </div>
+                </article><!-- #post-## -->
+
+
+                <article id="post-163"
+                         class="post-163 post type-post status-publish format-standard has-post-thumbnail hentry category-life tag-25 tag-24 tag-17 tag-23 tag-22 tag-26">
+                  <div class="blog-item-wrap">
+                    <div class="post-inner-content">
+                      <header class="entry-header page-header">
+                        <ul class="single-category">
+                          <li class="cat-item cat-item-4"><a href="https://pozlife.net/category/life">生活</a>
+                          </li>
+                        </ul>
+                        <h2 class="entry-title"><a href="https://pozlife.net/life/christmas" rel="bookmark">ポズナンで過ごす初めてのクリスマス（2017年）</a>
+                        </h2>
+
+                        <div class="entry-meta">
+                          <span class="posted-on">投稿日 <a href="https://pozlife.net/life/christmas" rel="bookmark"><time
+                              class="entry-date published" datetime="2018-01-08T09:48:45+00:00">2018年1月8日</time><time
+                              class="updated" datetime="2018-02-20T00:33:11+00:00">2018年2月20日</time></a></span>by <span
+                            class="author vcard"><a class="url fn n"
+                                                    href="https://pozlife.net/author/amy">amy</a></span>
+
+                        </div><!-- .entry-meta -->
+                      </header><!-- .entry-header -->
+
+                      <a href="https://pozlife.net/life/christmas" title="ポズナンで過ごす初めてのクリスマス（2017年）">
+                        <img width="330" height="220"
+                             src="https://i2.wp.com/pozlife.net/wp-content/uploads/2018/01/IMG_1683-1.jpg?resize=330%2C220&amp;ssl=1"
+                             class="single-featured wp-post-image" alt=""
+                             srcset="https://i2.wp.com/pozlife.net/wp-content/uploads/2018/01/IMG_1683-1.jpg?resize=330%2C220&amp;ssl=1 330w, https://i2.wp.com/pozlife.net/wp-content/uploads/2018/01/IMG_1683-1.jpg?zoom=2&amp;resize=330%2C220&amp;ssl=1 660w, https://i2.wp.com/pozlife.net/wp-content/uploads/2018/01/IMG_1683-1.jpg?zoom=3&amp;resize=330%2C220&amp;ssl=1 990w"
+                             sizes="(max-width: 330px) 100vw, 330px" data-attachment-id="172"
+                             data-permalink="https://pozlife.net/life/christmas/attachment/img_1683-2"
+                             data-orig-file="https://i2.wp.com/pozlife.net/wp-content/uploads/2018/01/IMG_1683-1.jpg?fit=3024%2C4032&amp;ssl=1"
+                             data-orig-size="3024,4032" data-comments-opened="1"
+                             data-image-meta="{&quot;aperture&quot;:&quot;2.2&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;iPhone SE&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;1514059197&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;4.15&quot;,&quot;iso&quot;:&quot;200&quot;,&quot;shutter_speed&quot;:&quot;0.058823529411765&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}"
+                             data-image-title="IMG_1683" data-image-description=""
+                             data-medium-file="https://i2.wp.com/pozlife.net/wp-content/uploads/2018/01/IMG_1683-1.jpg?fit=225%2C300&amp;ssl=1"
+                             data-large-file="https://i2.wp.com/pozlife.net/wp-content/uploads/2018/01/IMG_1683-1.jpg?fit=697%2C929&amp;ssl=1"/>
+                      </a>
+
+                      <div class="entry-content">
+
+                        <p>ポーランドの人々はクリスマスは家で家族と過ごすのが当たり前。スーパーやお店は全部閉まるから食べ物を確保した方が良いとネットに書かれてはいたのですが、本当に全て閉まってるーー！！！
+                          リヴァティー広場 旧市街地から横に抜けた [&hellip;]</p>
+
+
+                        <div class="read-more">
+                          <a href="https://pozlife.net/life/christmas" title="ポズナンで過ごす初めてのクリスマス（2017年）">もっと見る</a>
+                        </div>
+
+                        <div class="entry-footer">
+                          <span class="comments-link"><a href="https://pozlife.net/life/christmas#respond">No comments yet</a></span>
+                        </div><!-- .entry-footer -->
+                      </div><!-- .entry-content -->
+                    </div>
+                  </div>
+                </article><!-- #post-## -->
+
+
+              </div>
+
+              <nav class="navigation paging-navigation" role="navigation">
+                <h1 class="screen-reader-text">投稿ナビゲーション</h1>
+                <div class="nav-links">
+
+                  <div class="nav-previous"><a href="https://pozlife.net/page/2">次のページ</a></div>
+
+
+                </div><!-- .nav-links -->
+              </nav><!-- .navigation -->
+
+
+            </main><!-- #main -->
+          </div><!-- #primary -->
+
+        </div>
+
+
+        <div id="secondary" class="widget-area col-sm-12 col-md-4" role="complementary">
+          <div class="inner">
+            <aside id="grofile-4" class="widget widget-grofile grofile"><h3 class="widget-title">プロフィール</h3>      <img
+                src="https://secure.gravatar.com/avatar/aef000814df774bf7f72f5faeb7d1dcb?s=320"
+                class="grofile-thumbnail no-grav" alt="tomo &amp; amy"/>
+              <div class="grofile-meta">
+                <h4><a href="http://gravatar.com/gopozlife">tomo &amp; amy</a></h4>
+                <p>
+                  ポズナン(ポーランド)移住した夫婦がお送りする海外生活。夫婦で思い切って海外移住を決意。夫は日本での会社生活後、フリーランスを経てポズナンで起業し移住。妻は英語を勉強しつつ好きなお花に携われるよう日々奮闘中。現地での気ままな生活をお届け。</p>
+              </div>
+
+
+              <p><a href="http://gravatar.com/gopozlife" class="grofile-full-link">
+                プロフィールを表示 &rarr; </a></p>
+
+            </aside>
+            <aside id="simple_ga_rankig-2" class="widget widget_simple_ga_ranking"><h3 class="widget-title">
+              よく読まれている記事</h3>
+              <ol class="sga-ranking">
+                <li class="sga-ranking-list sga-ranking-list-1"><a href="https://pozlife.net/life/ziaja"
+                                                                   title="プチプラで自然派化粧品なZiaja（ジャヤ）">プチプラで自然派化粧品なZiaja（ジャヤ）</a>
+                </li>
+                <li class="sga-ranking-list sga-ranking-list-2"><a href="https://pozlife.net/life/emigration"
+                                                                   title="ポーランド海外移住">ポーランド海外移住</a></li>
+                <li class="sga-ranking-list sga-ranking-list-3"><a href="https://pozlife.net/trip/jeleniagora-trip"
+                                                                   title="友達の住む街へ遊びに〜Jelenia Gora and Boleslawice">友達の住む街へ遊びに〜Jelenia
+                  Gora and Boleslawice</a></li>
+                <li class="sga-ranking-list sga-ranking-list-4"><a href="https://pozlife.net/football/soccer-worldcup"
+                                                                   title="ポーランド人に囲まれてのサッカーワールドカップ（2018年）">ポーランド人に囲まれてのサッカーワールドカップ（2018年）</a>
+                </li>
+                <li class="sga-ranking-list sga-ranking-list-5"><a href="https://pozlife.net/gourmet/cafe"
+                                                                   title="ポズナンのカフェ特集">ポズナンのカフェ特集</a></li>
+                <li class="sga-ranking-list sga-ranking-list-6"><a href="https://pozlife.net/football/lech-poznan"
+                                                                   title="熱狂的な地元レフ・ポズナンのサッカー初観戦">熱狂的な地元レフ・ポズナンのサッカー初観戦</a>
+                </li>
+                <li class="sga-ranking-list sga-ranking-list-7"><a href="https://pozlife.net/gourmet/mikoya"
+                                                                   title="ポズナンのラーメン屋初潜入！">ポズナンのラーメン屋初潜入！</a></li>
+                <li class="sga-ranking-list sga-ranking-list-8"><a href="https://pozlife.net/life/ikebana-workshop"
+                                                                   title="ポーランドの大学生へいけばなワークショップ">ポーランドの大学生へいけばなワークショップ</a>
+                </li>
+                <li class="sga-ranking-list sga-ranking-list-9"><a href="https://pozlife.net/trip/berlin-trip"
+                                                                   title="ベルリンとポツダムへの旅〜">ベルリンとポツダムへの旅〜</a></li>
+                <li class="sga-ranking-list sga-ranking-list-10"><a href="https://pozlife.net/life/polish-festival"
+                                                                    title="とある日曜日、広場でのイベントに遭遇">とある日曜日、広場でのイベントに遭遇</a>
+                </li>
+              </ol>
+            </aside>
+            <aside id="activello-cats-2" class="widget activello-cats"><h3 class="widget-title">カテゴリー別</h3>
+
+              <div class="cats-widget">
+
+                <ul>
+                  <li class="cat-item cat-item-4"><a href="https://pozlife.net/category/life">生活</a> <span>13</span>
+                  </li>
+                  <li class="cat-item cat-item-6"><a href="https://pozlife.net/category/gourmet">グルメ</a> <span>5</span>
+                  </li>
+                  <li class="cat-item cat-item-62"><a href="https://pozlife.net/category/trip">旅行</a> <span>3</span>
+                  </li>
+                  <li class="cat-item cat-item-7"><a href="https://pozlife.net/category/football">サッカー</a>
+                    <span>2</span>
+                  </li>
+                </ul>
+
+              </div><!-- end widget content -->
+
+            </aside>
+            <aside id="tag_cloud-2" class="widget widget_tag_cloud"><h3 class="widget-title">タグ</h3>
+              <div class="tagcloud"><a href="https://pozlife.net/tag/wosp2018"
+                                       class="tag-cloud-link tag-link-42 tag-link-position-1" style="font-size: 8pt;"
+                                       aria-label="wosp2018 (1個の項目)">wosp2018<span
+                  class="tag-link-count"> (1)</span></a>
+                <a href="https://pozlife.net/tag/ziaja" class="tag-cloud-link tag-link-46 tag-link-position-2"
+                   style="font-size: 8pt;" aria-label="Ziaja (1個の項目)">Ziaja<span class="tag-link-count"> (1)</span></a>
+                <a href="https://pozlife.net/tag/%e3%82%a4%e3%83%99%e3%83%b3%e3%83%88"
+                   class="tag-cloud-link tag-link-78 tag-link-position-3" style="font-size: 10.377358490566pt;"
+                   aria-label="イベント (2個の項目)">イベント<span class="tag-link-count"> (2)</span></a>
+                <a href="https://pozlife.net/tag/%e3%82%a4%e3%83%b3%e3%82%bf%e3%83%bc%e3%83%8d%e3%83%83%e3%83%88"
+                   class="tag-cloud-link tag-link-15 tag-link-position-4" style="font-size: 8pt;"
+                   aria-label="インターネット (1個の項目)">インターネット<span class="tag-link-count"> (1)</span></a>
+                <a href="https://pozlife.net/tag/%e3%82%a8%e3%82%b9%e3%83%88%e3%83%8b%e3%82%a2"
+                   class="tag-cloud-link tag-link-11 tag-link-position-5" style="font-size: 8pt;"
+                   aria-label="エストニア (1個の項目)">エストニア<span class="tag-link-count"> (1)</span></a>
+                <a href="https://pozlife.net/tag/%e3%82%aa%e3%83%a9%e3%83%b3%e3%83%80"
+                   class="tag-cloud-link tag-link-12 tag-link-position-6" style="font-size: 8pt;"
+                   aria-label="オランダ (1個の項目)">オランダ<span class="tag-link-count"> (1)</span></a>
+                <a href="https://pozlife.net/tag/%e3%82%ab%e3%82%a6%e3%83%b3%e3%83%88%e3%83%80%e3%82%a6%e3%83%b3"
+                   class="tag-cloud-link tag-link-28 tag-link-position-7" style="font-size: 8pt;"
+                   aria-label="カウントダウン (1個の項目)">カウントダウン<span class="tag-link-count"> (1)</span></a>
+                <a href="https://pozlife.net/tag/%e3%82%ab%e3%83%a9%e3%83%95%e3%83%ab"
+                   class="tag-cloud-link tag-link-53 tag-link-position-8" style="font-size: 8pt;"
+                   aria-label="カラフル (1個の項目)">カラフル<span class="tag-link-count"> (1)</span></a>
+                <a href="https://pozlife.net/tag/%e3%82%af%e3%83%aa%e3%82%b9%e3%83%9e%e3%82%b9"
+                   class="tag-cloud-link tag-link-25 tag-link-position-9" style="font-size: 8pt;"
+                   aria-label="クリスマス (1個の項目)">クリスマス<span class="tag-link-count"> (1)</span></a>
+                <a href="https://pozlife.net/tag/%e3%82%b5%e3%83%83%e3%82%ab%e3%83%bc"
+                   class="tag-cloud-link tag-link-65 tag-link-position-10" style="font-size: 10.377358490566pt;"
+                   aria-label="サッカー (2個の項目)">サッカー<span class="tag-link-count"> (2)</span></a>
+                <a href="https://pozlife.net/tag/%e3%82%b7%e3%83%a3%e3%83%b3%e3%83%97%e3%83%bc"
+                   class="tag-cloud-link tag-link-44 tag-link-position-11" style="font-size: 8pt;"
+                   aria-label="シャンプー (1個の項目)">シャンプー<span class="tag-link-count"> (1)</span></a>
+                <a href="https://pozlife.net/tag/%e3%82%b8%e3%83%a3%e3%83%a4"
+                   class="tag-cloud-link tag-link-47 tag-link-position-12" style="font-size: 8pt;"
+                   aria-label="ジャヤ (1個の項目)">ジャヤ<span class="tag-link-count"> (1)</span></a>
+                <a href="https://pozlife.net/tag/%e3%82%b9%e3%82%a4%e3%83%bc%e3%83%84"
+                   class="tag-cloud-link tag-link-35 tag-link-position-13" style="font-size: 8pt;"
+                   aria-label="スイーツ (1個の項目)">スイーツ<span class="tag-link-count"> (1)</span></a>
+                <a href="https://pozlife.net/tag/%e3%82%b9%e3%83%bc%e3%83%91%e3%83%bc%e3%83%9e%e3%83%bc%e3%82%b1%e3%83%83%e3%83%88"
+                   class="tag-cloud-link tag-link-37 tag-link-position-14" style="font-size: 8pt;"
+                   aria-label="スーパーマーケット (1個の項目)">スーパーマーケット<span class="tag-link-count"> (1)</span></a>
+                <a href="https://pozlife.net/tag/%e3%83%81%e3%83%a3%e3%83%aa%e3%83%86%e3%82%a3%e3%83%bc%e3%82%a4%e3%83%99%e3%83%b3%e3%83%88"
+                   class="tag-cloud-link tag-link-38 tag-link-position-15" style="font-size: 8pt;"
+                   aria-label="チャリティーイベント (1個の項目)">チャリティーイベント<span class="tag-link-count"> (1)</span></a>
+                <a href="https://pozlife.net/tag/%e3%83%87%e3%82%b6%e3%83%bc%e3%83%89"
+                   class="tag-cloud-link tag-link-34 tag-link-position-16" style="font-size: 8pt;"
+                   aria-label="デザード (1個の項目)">デザード<span class="tag-link-count"> (1)</span></a>
+                <a href="https://pozlife.net/tag/%e3%83%89%e3%82%a4%e3%83%84"
+                   class="tag-cloud-link tag-link-13 tag-link-position-17" style="font-size: 10.377358490566pt;"
+                   aria-label="ドイツ (2個の項目)">ドイツ<span class="tag-link-count"> (2)</span></a>
+                <a href="https://pozlife.net/tag/%e3%83%8f%e3%83%bc%e3%83%88"
+                   class="tag-cloud-link tag-link-39 tag-link-position-18" style="font-size: 8pt;"
+                   aria-label="ハート (1個の項目)">ハート<span class="tag-link-count"> (1)</span></a>
+                <a href="https://pozlife.net/tag/%e3%83%95%e3%83%ac%e3%83%bc%e3%83%90%e3%83%bc%e3%83%86%e3%82%a3%e3%83%bc"
+                   class="tag-cloud-link tag-link-32 tag-link-position-19" style="font-size: 8pt;"
+                   aria-label="フレーバーティー (1個の項目)">フレーバーティー<span class="tag-link-count"> (1)</span></a>
+                <a href="https://pozlife.net/tag/%e3%83%96%e3%83%ad%e3%83%84%e3%83%af%e3%83%95"
+                   class="tag-cloud-link tag-link-52 tag-link-position-20" style="font-size: 8pt;"
+                   aria-label="ブロツワフ (1個の項目)">ブロツワフ<span class="tag-link-count"> (1)</span></a>
+                <a href="https://pozlife.net/tag/%e3%83%9c%e3%83%87%e3%82%a3%e3%83%bc%e3%82%af%e3%83%aa%e3%83%bc%e3%83%a0"
+                   class="tag-cloud-link tag-link-45 tag-link-position-21" style="font-size: 8pt;"
+                   aria-label="ボディークリーム (1個の項目)">ボディークリーム<span class="tag-link-count"> (1)</span></a>
+                <a href="https://pozlife.net/tag/%e3%83%9d%e3%82%ba%e3%83%8a%e3%83%b3"
+                   class="tag-cloud-link tag-link-24 tag-link-position-22" style="font-size: 19.88679245283pt;"
+                   aria-label="ポズナン (15個の項目)">ポズナン<span class="tag-link-count"> (15)</span></a>
+                <a href="https://pozlife.net/tag/%e3%83%9d%e3%83%b3%e3%83%81%e3%82%ad"
+                   class="tag-cloud-link tag-link-33 tag-link-position-23" style="font-size: 8pt;"
+                   aria-label="ポンチキ (1個の項目)">ポンチキ<span class="tag-link-count"> (1)</span></a>
+                <a href="https://pozlife.net/tag/%e3%83%9d%e3%83%bc%e3%83%a9%e3%83%b3%e3%83%89"
+                   class="tag-cloud-link tag-link-17 tag-link-position-24" style="font-size: 22pt;"
+                   aria-label="ポーランド (22個の項目)">ポーランド<span class="tag-link-count"> (22)</span></a>
+                <a href="https://pozlife.net/tag/%e3%83%9d%e3%83%bc%e3%83%a9%e3%83%b3%e3%83%89%e6%96%99%e7%90%86"
+                   class="tag-cloud-link tag-link-23 tag-link-position-25" style="font-size: 8pt;"
+                   aria-label="ポーランド料理 (1個の項目)">ポーランド料理<span class="tag-link-count"> (1)</span></a>
+                <a href="https://pozlife.net/tag/%e3%83%a8%e3%83%bc%e3%83%ad%e3%83%83%e3%83%91"
+                   class="tag-cloud-link tag-link-50 tag-link-position-26" style="font-size: 10.377358490566pt;"
+                   aria-label="ヨーロッパ (2個の項目)">ヨーロッパ<span class="tag-link-count"> (2)</span></a>
+                <a href="https://pozlife.net/tag/%e3%83%a9%e3%83%bc%e3%83%a1%e3%83%b3"
+                   class="tag-cloud-link tag-link-19 tag-link-position-27" style="font-size: 8pt;"
+                   aria-label="ラーメン (1個の項目)">ラーメン<span class="tag-link-count"> (1)</span></a>
+                <a href="https://pozlife.net/tag/%e3%83%ac%e3%82%b9%e3%83%88%e3%83%a9%e3%83%b3"
+                   class="tag-cloud-link tag-link-22 tag-link-position-28" style="font-size: 10.377358490566pt;"
+                   aria-label="レストラン (2個の項目)">レストラン<span class="tag-link-count"> (2)</span></a>
+                <a href="https://pozlife.net/tag/%e4%b9%be%e7%87%a5"
+                   class="tag-cloud-link tag-link-48 tag-link-position-29" style="font-size: 8pt;"
+                   aria-label="乾燥 (1個の項目)">乾燥<span class="tag-link-count"> (1)</span></a>
+                <a href="https://pozlife.net/tag/%e5%88%9d%e6%97%a5"
+                   class="tag-cloud-link tag-link-18 tag-link-position-30" style="font-size: 8pt;"
+                   aria-label="初日 (1個の項目)">初日<span class="tag-link-count"> (1)</span></a>
+                <a href="https://pozlife.net/tag/%e5%8c%96%e7%b2%a7%e5%93%81"
+                   class="tag-cloud-link tag-link-43 tag-link-position-31" style="font-size: 8pt;"
+                   aria-label="化粧品 (1個の項目)">化粧品<span class="tag-link-count"> (1)</span></a>
+                <a href="https://pozlife.net/tag/%e5%b0%82%e9%96%80%e5%ba%97"
+                   class="tag-cloud-link tag-link-31 tag-link-position-32" style="font-size: 8pt;"
+                   aria-label="専門店 (1個の項目)">専門店<span class="tag-link-count"> (1)</span></a>
+                <a href="https://pozlife.net/tag/%e5%b9%b4%e3%81%ab%e4%b8%80%e5%ba%a6"
+                   class="tag-cloud-link tag-link-40 tag-link-position-33" style="font-size: 8pt;"
+                   aria-label="年に一度 (1個の項目)">年に一度<span class="tag-link-count"> (1)</span></a>
+                <a href="https://pozlife.net/tag/%e5%b9%b4%e6%9c%ab"
+                   class="tag-cloud-link tag-link-27 tag-link-position-34" style="font-size: 8pt;"
+                   aria-label="年末 (1個の項目)">年末<span class="tag-link-count"> (1)</span></a>
+                <a href="https://pozlife.net/tag/%e6%89%8b%e4%bd%9c%e3%82%8a%e8%aa%bf%e5%91%b3%e6%96%99"
+                   class="tag-cloud-link tag-link-49 tag-link-position-35" style="font-size: 8pt;"
+                   aria-label="手作り調味料 (1個の項目)">手作り調味料<span class="tag-link-count"> (1)</span></a>
+                <a href="https://pozlife.net/tag/%e6%97%85%e8%a1%8c"
+                   class="tag-cloud-link tag-link-51 tag-link-position-36" style="font-size: 8pt;"
+                   aria-label="旅行 (1個の項目)">旅行<span class="tag-link-count"> (1)</span></a>
+                <a href="https://pozlife.net/tag/%e6%97%a5%e6%9c%ac%e9%a3%9f"
+                   class="tag-cloud-link tag-link-41 tag-link-position-37" style="font-size: 8pt;"
+                   aria-label="日本食 (1個の項目)">日本食<span class="tag-link-count"> (1)</span></a>
+                <a href="https://pozlife.net/tag/%e6%97%a7%e5%b8%82%e8%a1%97"
+                   class="tag-cloud-link tag-link-26 tag-link-position-38" style="font-size: 10.377358490566pt;"
+                   aria-label="旧市街 (2個の項目)">旧市街<span class="tag-link-count"> (2)</span></a>
+                <a href="https://pozlife.net/tag/%e6%b5%b7%e5%a4%96"
+                   class="tag-cloud-link tag-link-10 tag-link-position-39" style="font-size: 8pt;"
+                   aria-label="海外 (1個の項目)">海外<span class="tag-link-count"> (1)</span></a>
+                <a href="https://pozlife.net/tag/%e7%84%a1%e7%b7%9alan"
+                   class="tag-cloud-link tag-link-16 tag-link-position-40" style="font-size: 8pt;"
+                   aria-label="無線LAN (1個の項目)">無線LAN<span class="tag-link-count"> (1)</span></a>
+                <a href="https://pozlife.net/tag/%e7%a7%bb%e4%bd%8f"
+                   class="tag-cloud-link tag-link-9 tag-link-position-41" style="font-size: 8pt;"
+                   aria-label="移住 (1個の項目)">移住<span class="tag-link-count"> (1)</span></a>
+                <a href="https://pozlife.net/tag/%e7%b4%85%e8%8c%b6"
+                   class="tag-cloud-link tag-link-30 tag-link-position-42" style="font-size: 8pt;"
+                   aria-label="紅茶 (1個の項目)">紅茶<span class="tag-link-count"> (1)</span></a>
+                <a href="https://pozlife.net/tag/%e8%8a%b1%e7%81%ab"
+                   class="tag-cloud-link tag-link-29 tag-link-position-43" style="font-size: 8pt;"
+                   aria-label="花火 (1個の項目)">花火<span class="tag-link-count"> (1)</span></a>
+                <a href="https://pozlife.net/tag/%e8%ac%8e%e3%81%ae%e5%a5%b3%e6%80%a7"
+                   class="tag-cloud-link tag-link-20 tag-link-position-44" style="font-size: 8pt;"
+                   aria-label="謎の女性 (1個の項目)">謎の女性<span class="tag-link-count"> (1)</span></a>
+                <a href="https://pozlife.net/tag/%e9%a3%9f%e3%81%b9%e6%ad%a9%e3%81%8d"
+                   class="tag-cloud-link tag-link-36 tag-link-position-45" style="font-size: 8pt;"
+                   aria-label="食べ歩き (1個の項目)">食べ歩き<span class="tag-link-count"> (1)</span></a></div>
+            </aside>
+            <aside id="text-3" class="widget widget_text"><h3 class="widget-title">スナップ写真</h3>
+              <div class="textwidget">
+                <p><!-- SnapWidget --><br/>
+                  <iframe class="snapwidget-widget" style="border: none; overflow: hidden; width:100%; height: 375px;"
+                          src="https://snapwidget.com/embed/490664" frameborder="0" scrolling="no"></iframe>
+                </p>
+              </div>
+            </aside>
+          </div>
+        </div><!-- #secondary -->
+      </div><!-- close .*-inner (main-content or sidebar, depending if sidebar is used) -->
+    </div><!-- close .row -->
+  </div><!-- close .container -->
+</div><!-- close .site-content -->
+
+<div id="footer-area">
+  <footer id="colophon" class="site-footer" role="contentinfo">
+    <div class="site-info container">
+      <div class="row">
+        <nav id="social" class="social-icons">
+          <ul id="menu-social-items" class="social-menu">
+            <li id="menu-item-39" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-39"><a
+                href="https://www.facebook.com/%E3%83%9D%E3%82%BA%E3%83%8A%E3%83%8B%E3%82%89%E3%81%84%E3%81%B5-482386165497496/"><i
+                class="social_icon fa"><span>Facebook</span></i></a></li>
+            <li id="menu-item-40" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-40"><a
+                href="https://twitter.com/gopozlife"><i class="social_icon fa"><span>Twitter</span></i></a></li>
+          </ul>
+        </nav>
+        <div class="copyright col-md-12">
+          <p>© 2017 - 2018 ポズナンらいふ All rights reserved.</p>
+          <!--
+                      Activello						Theme by <a href="http://colorlib.com/" target="_blank">Colorlib</a> Powered by <a href="http://wordpress.org/" target="_blank">WordPress</a>-->
+        </div>
+      </div>
+    </div><!-- .site-info -->
+    <div class="scroll-to-top"><i class="fa fa-angle-up"></i></div><!-- .scroll-to-top -->
+  </footer><!-- #colophon -->
+</div>
+</div><!-- #page -->
+
+<script type="text/javascript">
+  jQuery(document).ready(function ($) {
+    if ($(window).width() >= 767) {
+      $('.navbar-nav > li.menu-item > a').click(function () {
+        if ($(this).attr('target') !== '_blank') {
+          window.location = $(this).attr('href');
+        } else {
+          var win = window.open($(this).attr('href'), '_blank');
+          win.focus();
+        }
+      });
+    }
+  });
+</script>
+<div style="display:none">
+</div>
+<meta http-equiv="imagetoolbar" content="no"><!-- disable image toolbar (if any) -->
+<script type="text/javascript">
+  /*<![CDATA[*/
+  document.oncontextmenu = function () {
+    return false;
+  };
+  document.onselectstart = function () {
+    if (event.srcElement.type != "text" && event.srcElement.type != "textarea" && event.srcElement.type != "password") {
+      return false;
+    }
+    else {
+      return true;
+    }
+  };
+  if (window.sidebar) {
+    document.onmousedown = function (e) {
+      var obj = e.target;
+      if (obj.tagName.toUpperCase() == 'SELECT'
+        || obj.tagName.toUpperCase() == "INPUT"
+        || obj.tagName.toUpperCase() == "TEXTAREA"
+        || obj.tagName.toUpperCase() == "PASSWORD") {
+        return true;
+      }
+      else {
+        return false;
+      }
+    };
+  }
+  document.ondragstart = function () {
+    return false;
+  };
+  /*]]>*/
+</script>
+<!--[if lte IE 8]>
+<link rel='stylesheet' id='jetpack-carousel-ie8fix-css'
+      href='https://pozlife.net/wp-content/plugins/jetpack/modules/carousel/jetpack-carousel-ie8fix.css?ver=20121024'
+      type='text/css' media='all'/>
+<![endif]-->
+<link rel='stylesheet' id='gravatar-card-services-css' href='https://secure.gravatar.com/css/services.css?ver=2018Julaa'
+      type='text/css' media='all'/>
+<script type='text/javascript'
+        src='https://pozlife.net/wp-content/plugins/jetpack/_inc/build/photon/photon.min.js?ver=20130122'></script>
+<script type='text/javascript' src='https://s0.wp.com/wp-content/js/devicepx-jetpack.js?ver=201828'></script>
+<script type='text/javascript' src='https://secure.gravatar.com/js/gprofiles.js?ver=2018Julaa'></script>
+<script type='text/javascript'>
+  /* <![CDATA[ */
+  var WPGroHo = {"my_hash": ""};
+  /* ]]> */
+</script>
+<script type='text/javascript'
+        src='https://pozlife.net/wp-content/plugins/jetpack/modules/wpgroho.js?ver=f26897ae1058be25482154ee57f428c2'></script>
+<script type='text/javascript'
+        src='https://pozlife.net/wp-content/themes/activello/assets/js/skip-link-focus-fix.js?ver=20140222'></script>
+<script type='text/javascript'
+        src='https://pozlife.net/wp-includes/js/wp-embed.min.js?ver=f26897ae1058be25482154ee57f428c2'></script>
+<script type='text/javascript'
+        src='https://pozlife.net/wp-content/themes/activello/assets/js/vendor/flexslider.min.js?ver=20140222'></script>
+<script type='text/javascript'
+        src='https://pozlife.net/wp-content/plugins/jetpack/_inc/build/spin.min.js?ver=1.3'></script>
+<script type='text/javascript'
+        src='https://pozlife.net/wp-content/plugins/jetpack/_inc/build/jquery.spin.min.js?ver=1.3'></script>
+<script type='text/javascript'>
+  /* <![CDATA[ */
+  var jetpackCarouselStrings = {
+    "widths": [370, 700, 1000, 1200, 1400, 2000],
+    "is_logged_in": "",
+    "lang": "ja",
+    "ajaxurl": "https:\/\/pozlife.net\/wp-admin\/admin-ajax.php",
+    "nonce": "5fdb5cce14",
+    "display_exif": "1",
+    "display_geo": "1",
+    "single_image_gallery": "1",
+    "single_image_gallery_media_file": "",
+    "background_color": "black",
+    "comment": "\u30b3\u30e1\u30f3\u30c8",
+    "post_comment": "\u30b3\u30e1\u30f3\u30c8\u3092\u9001\u4fe1",
+    "write_comment": "\u30b3\u30e1\u30f3\u30c8\u3092\u3069\u3046\u305e",
+    "loading_comments": "\u30b3\u30e1\u30f3\u30c8\u3092\u8aad\u307f\u8fbc\u3093\u3067\u3044\u307e\u3059\u2026",
+    "download_original": "\u30d5\u30eb\u30b5\u30a4\u30ba\u8868\u793a <span class=\"photo-size\">{0}<span class=\"photo-size-times\">\u00d7<\/span>{1}<\/span>",
+    "no_comment_text": "\u30b3\u30e1\u30f3\u30c8\u306e\u30e1\u30c3\u30bb\u30fc\u30b8\u3092\u3054\u8a18\u5165\u304f\u3060\u3055\u3044\u3002",
+    "no_comment_email": "\u30b3\u30e1\u30f3\u30c8\u3059\u308b\u306b\u306f\u30e1\u30fc\u30eb\u30a2\u30c9\u30ec\u30b9\u3092\u3054\u8a18\u5165\u304f\u3060\u3055\u3044\u3002",
+    "no_comment_author": "\u30b3\u30e1\u30f3\u30c8\u3059\u308b\u306b\u306f\u304a\u540d\u524d\u3092\u3054\u8a18\u5165\u304f\u3060\u3055\u3044\u3002",
+    "comment_post_error": "\u30b3\u30e1\u30f3\u30c8\u6295\u7a3f\u306e\u969b\u306b\u30a8\u30e9\u30fc\u304c\u767a\u751f\u3057\u307e\u3057\u305f\u3002\u5f8c\u307b\u3069\u3082\u3046\u4e00\u5ea6\u304a\u8a66\u3057\u304f\u3060\u3055\u3044\u3002",
+    "comment_approved": "\u30b3\u30e1\u30f3\u30c8\u304c\u627f\u8a8d\u3055\u308c\u307e\u3057\u305f\u3002",
+    "comment_unapproved": "\u30b3\u30e1\u30f3\u30c8\u306f\u627f\u8a8d\u5f85\u3061\u4e2d\u3067\u3059\u3002",
+    "camera": "\u30ab\u30e1\u30e9",
+    "aperture": "\u7d5e\u308a",
+    "shutter_speed": "\u30b7\u30e3\u30c3\u30bf\u30fc\u30b9\u30d4\u30fc\u30c9",
+    "focal_length": "\u7126\u70b9\u8ddd\u96e2",
+    "copyright": "\u8457\u4f5c\u6a29",
+    "comment_registration": "0",
+    "require_name_email": "1",
+    "login_url": "https:\/\/pozlife.net\/kanri\/?redirect_to=https%3A%2F%2Fpozlife.net%2Ffootball%2Fsoccer-worldcup",
+    "blog_id": "1",
+    "meta_data": ["camera", "aperture", "shutter_speed", "focal_length", "copyright"],
+    "local_comments_commenting_as": "<fieldset><label for=\"email\">\u30e1\u30fc\u30eb\u30a2\u30c9\u30ec\u30b9 (\u5fc5\u9808)<\/label> <input type=\"text\" name=\"email\" class=\"jp-carousel-comment-form-field jp-carousel-comment-form-text-field\" id=\"jp-carousel-comment-form-email-field\" \/><\/fieldset><fieldset><label for=\"author\">\u540d\u524d (\u5fc5\u9808)<\/label> <input type=\"text\" name=\"author\" class=\"jp-carousel-comment-form-field jp-carousel-comment-form-text-field\" id=\"jp-carousel-comment-form-author-field\" \/><\/fieldset><fieldset><label for=\"url\">\u30a6\u30a7\u30d6\u30b5\u30a4\u30c8<\/label> <input type=\"text\" name=\"url\" class=\"jp-carousel-comment-form-field jp-carousel-comment-form-text-field\" id=\"jp-carousel-comment-form-url-field\" \/><\/fieldset>"
+  };
+  /* ]]> */
+</script>
+<script type='text/javascript'
+        src='https://pozlife.net/wp-content/plugins/jetpack/_inc/build/carousel/jetpack-carousel.min.js?ver=20170209'></script>
+<script type='text/javascript' src='https://stats.wp.com/e-201828.js' async='async' defer='defer'></script>
+<script type='text/javascript'>
+  _stq = window._stq || [];
+  _stq.push(['view', {v: 'ext', j: '1:6.3.2', blog: '137538220', post: '0', tz: '2', srv: 'pozlife.net'}]);
+  _stq.push(['clickTrackerInit', '137538220', '0']);
+</script>
+
+<script type="text/javascript">window.NREUM || (NREUM = {});
+NREUM.info = {
+  "beacon": "bam.nr-data.net",
+  "licenseKey": "f6abab09db",
+  "applicationID": "76550678",
+  "transactionName": "YwdbYUZZXkYEVBJaV1pNeFZAUV9bSl4IV11M",
+  "queueTime": 0,
+  "applicationTime": 839,
+  "atts": "T0BYFw5DTUg=",
+  "errorBeacon": "bam.nr-data.net",
+  "agent": ""
+}</script>
+</body>
+</html>

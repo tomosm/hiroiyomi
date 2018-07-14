@@ -7,22 +7,14 @@ module Hiroiyomi
   # Parser
   module Parser
     def self.included(klass)
-      # @param [String] url URL
-      # @param [Array] filter of filtered by name list, e.g. [h1, h2, h3]
-      #
-      # @return [Array] of Hiroiyomi::Html::Element which has been filtered
-      def klass.read(url, filter:)
-        new.read(url, filter: filter)
+      def klass.read(url, filter:, is_deep: true)
+        new.read(url, filter: filter, is_deep: is_deep)
       end
     end
 
-    # @param [String] url URL
-    # @param [Array] filter of filtered by name list, e.g. [h1, h2, h3]
-    #
-    # @return [Array] of Hiroiyomi::Html::Element which has been filtered
-    def read(url, filter:)
+    def read(url, filter:, is_deep: true)
       @open_file = open_url(url)
-      do_filter(do_parse(@open_file), filter: filter)
+      do_filter(do_parse(@open_file), filter: filter, is_deep: is_deep)
     ensure
       @open_file&.unlink
     end
