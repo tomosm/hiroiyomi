@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
-require 'open-uri'
-require 'openssl'
+require 'hiroiyomi/html/element'
+require 'hiroiyomi/html/attribute'
+require 'hiroiyomi/html/text'
+require 'hiroiyomi/html/dom_parser_helper'
 
 module Hiroiyomi
   module Html
@@ -11,12 +13,18 @@ module Hiroiyomi
 
       attr_accessor :root
 
-      def initialize
-        @root = nil
+      class << self
+        def value_of(file)
+          document = new
+          return document if file.nil?
+
+          document.root = Element.value_of(file)
+          document
+        end
       end
 
-      def element=(element)
-        @root = element
+      def initialize
+        @root = nil
       end
 
       def each
