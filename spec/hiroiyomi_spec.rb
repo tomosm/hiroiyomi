@@ -6,7 +6,7 @@ require 'tempfile'
 
 RSpec.describe Hiroiyomi do
   it 'has a version number' do
-    expect(Hiroiyomi::VERSION).to eq '0.1.3'
+    expect(Hiroiyomi::VERSION).to eq '0.1.4'
   end
 
   describe '#read' do
@@ -180,6 +180,26 @@ The document has moved
           expect(actual.select { |e| e.name == 'h3' }.length).to eq 0
           expect(actual.select { |e| e.name == 'a' }.length).to eq 21
           expect(actual.select { |e| e.name == 'link' }.length).to eq 1
+        end
+      end
+
+      context 'resource is yahoo.co.jp' do
+        let(:url) { 'https://yahoo.co.jp.hiroiyomi' }
+        before do
+          dummy_data = "#{Hiroiyomi.root}/spec/support/data/yahoo.co.jp.html"
+          tempfile.write(File.new(dummy_data).read)
+          tempfile.rewind
+        end
+
+        let(:filter) { %w[h1 h2 h3 a link] }
+        it 'should get only filtered elements' do
+          actual = Hiroiyomi.read(url, filter: filter)
+
+          expect(actual.select { |e| e.name == 'h1' }.length).to eq 0
+          expect(actual.select { |e| e.name == 'h2' }.length).to eq 0
+          expect(actual.select { |e| e.name == 'h3' }.length).to eq 0
+          expect(actual.select { |e| e.name == 'a' }.length).to eq 59
+          expect(actual.select { |e| e.name == 'link' }.length).to eq 3
         end
       end
 

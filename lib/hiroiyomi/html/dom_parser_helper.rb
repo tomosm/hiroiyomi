@@ -14,7 +14,7 @@ module Hiroiyomi
 
         def skip_ignore_chars(file)
           while (c = file.getc)
-            unless /[\\t\\n\\r\s]/.match?(c)
+            unless /[\t\n\r\s]/.match?(c)
               file.ungetc(c)
               return
             end
